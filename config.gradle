@@ -1,0 +1,18 @@
+def supportVersion = "25.3.1"
+
+ext {
+    versions = [
+            "buildToolsVersion": "25.0.0",
+            "compileSdkVersion": 25,
+            "minSdkVersion"    : 14,
+            "targetSdkVersion" : 25,
+            "versionCode"      : 1,
+            "versionName"      : "1.0"
+    ]
+
+    dependencies = [
+            "support-v4"        : "com.android.support:support-v4:${supportVersion}",
+            "appcompat-v7"      : "com.android.support:appcompat-v7:${supportVersion}",
+            "RecyclerViewHelper": "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22",  //RecyclerAdapter∏®÷˙¿‡ https://github.com/CymChad/BaseRecyclerViewAdapterHelper
+    ]
+}
