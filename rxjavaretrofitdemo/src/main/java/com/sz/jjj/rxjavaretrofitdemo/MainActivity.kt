@@ -11,7 +11,12 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory.create
+import rx.Subscriber
+import rx.android.schedulers.AndroidSchedulers
+import rx.schedulers.Schedulers
+
 
 /**
  * Created by jjj on 2017/7/13.
@@ -23,8 +28,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         tv_retrofit.setOnClickListener() {
-            ToastUtils.show(this, "网络请求")
             getMovie()
+        }
+        tv_rxjava.setOnClickListener() {
+            getMovieForRxjava()
         }
     }
 
@@ -34,10 +41,10 @@ class MainActivity : AppCompatActivity() {
                 .baseUrl(baseUrl)
                 .addConverterFactory(create())
                 .build()
-        val movieService= retrofit.create(MovieService::class.java)
-        val call=movieService.getTopMovie(0, 10)
+        val movieService = retrofit.create(MovieService::class.java)
+        val call = movieService.getTopMovie(0, 10)
 
-        call.enqueue(object: Callback<MovieEntity>{
+        call.enqueue(object : Callback<MovieEntity> {
             override fun onFailure(call: Call<MovieEntity>?, t: Throwable?) {
                 Log.e("call failure", t.toString())
             }
@@ -47,6 +54,34 @@ class MainActivity : AppCompatActivity() {
                 Log.e("call onResponse", response!!.body().toString())
             }
         })
+
+    }
+
+    private fun getMovieForRxjava() {
+        val baseUrl = "https://api.douban.com/v2/movie/"
+        val retrofit = Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .addConverterFactory(create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build()
+        val movieService=retrofit.create(MovieService::class.java)
+
+        movieService.getTopMovie2(0, 10)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object: Subscriber<MovieEntity>(){
+                    override fun onNext(t: MovieEntity?) {
+                        Log.e("call onSuccess", t.toString())
+                    }
+
+                    override fun onError(e: Throwable?) {
+                        Log.e("call onError", e!!.message)
+                    }
+
+                    override fun onCompleted() {
+                        ToastUtils.show(this@MainActivity, "Get Top Movie Completed")
+                    }
+                })
 
     }
 }
