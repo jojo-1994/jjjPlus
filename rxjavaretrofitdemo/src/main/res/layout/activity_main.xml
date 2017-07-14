@@ -1,59 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="20dp"
-    tools:context="com.sz.jjj.rxjavaretrofitdemo.MainActivity">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:orientation="vertical">
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        tools:context="com.sz.jjj.rxjavaretrofitdemo.MainActivity">
 
-        <Button
-            android:id="@+id/tv_retrofit"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="1.retrofit网络请求" />
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/tv_httpMethods"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2.封装网络请求过程" />
+            <Button
+                android:id="@+id/tv_retrofit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1.retrofit网络请求" />
 
-        <Button
-            android:id="@+id/tv_rxjava"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3.rxjava网络请求" />
+            <Button
+                android:id="@+id/tv_httpMethods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2.封装网络请求过程" />
 
-        <Button
-            android:id="@+id/tv_httpResult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="4.封装网络请求数据" />
+            <Button
+                android:id="@+id/tv_rxjava"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3.rxjava网络请求" />
 
-        <Button
-            android:id="@+id/tv_subscribe"
-            android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/tv_httpResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4.封装网络请求数据" />
+
+            <Button
+                android:id="@+id/tv_subscribe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5.ProgressDialog" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="5.加载的subscribe" />
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+
+
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:orientation="vertical">
-
-
-    </LinearLayout>
-
-
-</LinearLayout>
+</ScrollView>

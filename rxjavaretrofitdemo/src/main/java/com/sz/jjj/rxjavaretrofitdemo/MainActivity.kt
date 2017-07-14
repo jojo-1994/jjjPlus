@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         tv_subscribe.setOnClickListener() {
             getMovieForScbscriber()
         }
+
     }
 
     // 1、只是用retrofit进行网络请求
@@ -149,9 +150,11 @@ class MainActivity : AppCompatActivity() {
                 ToastUtils.show(this@MainActivity, subjects.get(0).toString())
             }
         }
-        val progressScriber = object : ProgressSubscriber<List<Subjects>>(subscribeListener) {}
+        val progressScriber = object : ProgressSubscriber<List<Subjects>>(subscribeListener, this) {}
         val httpMethods = HttpMethods()
         httpMethods.getTopMovie3(progressScriber, 0, 1)
     }
+
+
 }
 
