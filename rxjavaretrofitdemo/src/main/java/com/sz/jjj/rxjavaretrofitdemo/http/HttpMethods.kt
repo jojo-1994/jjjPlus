@@ -1,7 +1,6 @@
 package com.sz.jjj.rxjavaretrofitdemo.http
 
 import com.sz.jjj.rxjavaretrofitdemo.model.HttpResult
-import com.sz.jjj.rxjavaretrofitdemo.model.MovieEntity
 import com.sz.jjj.rxjavaretrofitdemo.model.Subjects
 import com.sz.jjj.rxjavaretrofitdemo.service.MovieService
 import com.sz.jjj.rxjavaretrofitdemo.subscriber.ProgressSubscriber
@@ -9,6 +8,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import rx.Observable
 import rx.Subscriber
 import rx.android.schedulers.AndroidSchedulers
 import rx.functions.Func1
@@ -42,23 +42,7 @@ class HttpMethods {
         movieService = retrofit.create(MovieService::class.java)
     }
 
-    fun getTopMovie(subscribe: Subscriber<MovieEntity>, start: Int, end: Int) {
-        movieService.getTopMovie2(start, end)
-                .subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(subscribe)
-    }
-
-    fun getTopMovie2(subscribe: Subscriber<HttpResult<List<Subjects>>>, start: Int, end: Int) {
-        movieService.getTopMovie3(start, end)
-                .subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(subscribe)
-    }
-
-    fun getTopMovie3(subscribe: ProgressSubscriber<List<Subjects>>, start: Int, end: Int) {
+    fun getTopMovie(subscribe: ProgressSubscriber<List<Subjects>>, start: Int, end: Int) {
         movieService.getTopMovie3(start, end)
                 .map(HttpResultFunc<List<Subjects>>())
                 .subscribeOn(Schedulers.io())
@@ -67,10 +51,21 @@ class HttpMethods {
                 .subscribe(subscribe)
     }
 
+    private fun toSubscribe(o: Observable<*>, s: Subscriber<*>) {
+        o.subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+    }
+
+    /**
+     * 用来统一处理Http的resultCode,并将HttpResult的Data部分剥离出来返回给subscriber
+     *
+     * @param <T>   Subscriber真正需要的数据类型，也就是Data部分的数据类型
+     */
     class HttpResultFunc<T>() : Func1<HttpResult<T>, T> {
         override fun call(t: HttpResult<T>?): T {
             if (t!!.count == 0) {
-                throw ApiException(100)
+                throw ApiException(ApiException.NO_DATA)
             }
             return t.subjects!!
         }
