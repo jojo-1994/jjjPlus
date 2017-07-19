@@ -142,4 +142,12 @@ public class CircularRevealButton extends LinearLayout {
         mAnimator.start();
     }
 
+    /**
+     *重写此方法，可以在布局文件中预览
+     */
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
+    }
+
 }
