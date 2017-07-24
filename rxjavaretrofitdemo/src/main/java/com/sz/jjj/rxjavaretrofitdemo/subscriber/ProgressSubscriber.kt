@@ -1,9 +1,13 @@
 package com.sz.jjj.rxjavaretrofitdemo.subscriber
 
 import android.content.Context
+import android.util.Log
+import com.sz.jjj.baselibrary.utils.ToastUtils
 import com.sz.jjj.rxjavaretrofitdemo.progress.ProgressCancelListener
 import com.sz.jjj.rxjavaretrofitdemo.progress.ProgressDialogHandler
 import rx.Subscriber
+import java.io.IOException
+import java.net.UnknownHostException
 
 /**
  * Created by jjj on 2017/7/13.
@@ -19,14 +23,14 @@ open class ProgressSubscriber<T> : Subscriber<T>, ProgressCancelListener {
     constructor(subscriberOnNextListener: SubscriberOnNextListener<T>, context: Context) {
         mSubscriberOnNextListener = subscriberOnNextListener
         mContext = context
-        mProgressDialogHandler= ProgressDialogHandler(mContext!!, this, true)
+        mProgressDialogHandler = ProgressDialogHandler(mContext!!, this, true)
     }
 
     constructor(subscriberOnNextListener: SubscriberOnNextListener<T>, context: Context, showProgressDialog: Boolean) {
         mSubscriberOnNextListener = subscriberOnNextListener
         mContext = context
         isShowProgress = showProgressDialog
-        mProgressDialogHandler= ProgressDialogHandler(mContext!!, this, true)
+        mProgressDialogHandler = ProgressDialogHandler(mContext!!, this, true)
     }
 
     // 请求开始：显示加载框
@@ -46,11 +50,24 @@ open class ProgressSubscriber<T> : Subscriber<T>, ProgressCancelListener {
     }
 
     // 请求错误：关闭加载框，提示
-    override fun onError(e: Throwable?) {
+    override fun onError(throwable: Throwable?) {
         dismissProgressDialog()
-//        throw ApiException(e!!, mContext!!)
-        if (e != null) {
-            mSubscriberOnNextListener!!.onError(e)
+        if (throwable != null) {
+            Log.e("call", throwable.message)
+            var message: String? = null
+            if (throwable is IOException || throwable.toString().contains("Unable to resolve host")) {
+                message = "请检查网络连接"
+            } else if (throwable is UnknownHostException) {
+                message = "网络连接较慢，请检查后重试"
+            } else if (throwable is IllegalStateException) {
+                message = "数据加载失败，请稍后再试"
+            } else if (throwable.toString().contains("Canceled")) {
+                //取消请求 do nothing
+            } else if (throwable.message!!.contains("token")) {
+                //token未认证
+            }
+            ToastUtils.show(mContext, message)
+//            mSubscriberOnNextListener!!.onError(throwable)
         }
     }
 

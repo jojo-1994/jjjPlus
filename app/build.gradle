@@ -36,7 +36,6 @@ dependencies {
     compile rootProject.ext.dependencies["RecyclerViewHelper"]
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    testCompile 'junit:junit:4.12'
     compile project(':baselibrary')
 }
 repositories {

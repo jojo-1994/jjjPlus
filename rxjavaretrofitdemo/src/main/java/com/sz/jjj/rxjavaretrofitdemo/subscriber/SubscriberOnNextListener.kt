@@ -7,4 +7,5 @@ package com.sz.jjj.rxjavaretrofitdemo.subscriber
 interface SubscriberOnNextListener<T> {
      fun onNext(t: T)
      fun onError(e: Throwable)
+     fun onComplete()
 }

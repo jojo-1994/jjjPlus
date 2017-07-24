@@ -55,6 +55,7 @@ class HttpMethods {
         o.subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+
     }
 
     /**

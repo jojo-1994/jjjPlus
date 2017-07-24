@@ -15,6 +15,7 @@ ext {
             "appcompat-v7"            : "com.android.support:appcompat-v7:${supportVersion}",
             "recyclerview-v7"         : "com.android.support:recyclerview-v7:${supportVersion}",
             "RecyclerViewHelper"      : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22",  //RecyclerAdapter https://github.com/CymChad/BaseRecyclerViewAdapterHelper
+            "butterknife7"            : "com.jakewharton:butterknife:7.0.1",   //注解 https://github.com/JakeWharton/butterknife
             "butterknife8"            : "com.jakewharton:butterknife:8.6.0",   //注解 https://github.com/JakeWharton/butterknife
             "retrofit2"               : "com.squareup.retrofit2:retrofit:2.3.0",  //retrofit https://github.com/square/retrofit
             "gson"                    : "com.google.code.gson:gson:2.8.1",  //gson https://github.com/google/gson

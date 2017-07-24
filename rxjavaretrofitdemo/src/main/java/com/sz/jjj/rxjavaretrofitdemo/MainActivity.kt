@@ -30,6 +30,9 @@ class MainActivity : AppCompatActivity() {
 
         // 单例模式：object: +对象名
         val subscribeListener = object : SubscriberOnNextListener<List<Subjects>> {
+            override fun onComplete() {
+
+            }
 
             //接受到请求结果之后对UI的处理
             override fun onNext(subjects: List<Subjects>) {
@@ -41,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                 ToastUtils.show(this@MainActivity, e.message)
             }
         }
-        val progressScriber = object : ProgressSubscriber<List<Subjects>>(subscribeListener, this, false) {}
+        val progressScriber = object : ProgressSubscriber<List<Subjects>>(subscribeListener, this, true) {}
         val httpMethods = HttpMethods()
         httpMethods.getTopMovie(progressScriber, 0, 1)
     }
