@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MeituanBottomNavActivity"/>
+        <activity android:name=".activity.EmptyRecyclerviewActivity"/>
 
     </application>
 

@@ -7,6 +7,7 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.listener.OnItemClickListener
+import com.sz.jjj.activity.EmptyRecyclerviewActivity
 import com.sz.jjj.activity.MeituanBottomNavActivity
 import com.sz.jjj.adapter.HomeAdapter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -14,8 +15,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val ACTIVITY = arrayOf<Class<*>>(MeituanBottomNavActivity::class.java)
-    private val TITLE = arrayOf("仿美图底部导航")
+    private val ACTIVITY = arrayOf<Class<*>>(MeituanBottomNavActivity::class.java, EmptyRecyclerviewActivity::class.java)
+    private val TITLE = arrayOf("仿美图底部导航", "Recyclerview空布局")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

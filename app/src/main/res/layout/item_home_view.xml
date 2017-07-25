@@ -5,7 +5,7 @@
     android:background="@android:color/white"
     android:orientation="vertical">
 
-    <TextView
+    <Button
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -14,5 +14,5 @@
         android:gravity="center"
         android:text="Animation"
         android:textColor="@android:color/black"
-        android:textSize="16sp"/>
+        android:textSize="14sp"/>
 </LinearLayout>
