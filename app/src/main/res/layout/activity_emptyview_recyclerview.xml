@@ -28,4 +28,5 @@
         android:layout_centerInParent="true"
         android:gravity="center"
         android:text="暂时还没有内容哦" />
+
 </LinearLayout>
