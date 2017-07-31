@@ -3,6 +3,7 @@ package com.sz.jjj.activity
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
@@ -45,6 +46,7 @@ class WebViewActivity : AppCompatActivity() {
                     mProgress.setVisibility(View.VISIBLE)
                 }
 
+                Log.e("newProgress", newProgress.toString())
                 if (newProgress >= 85) {
                     if (isContinue) {
                         return
