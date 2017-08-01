@@ -8,6 +8,7 @@ import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import com.sz.jjj.Config
 import com.sz.jjj.R
 import kotlinx.android.synthetic.main.activity_listern_notification.*
 
@@ -40,11 +41,26 @@ class ListernNotificationActivity : AppCompatActivity() {
             startActivity(Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"));
         })
 
+        access.setOnClickListener(View.OnClickListener {
+            openAccessibilityServiceSettings()
+        })
+
         val filter = IntentFilter()
-        filter.addAction("com.sz.jjj.service.ACCESSBILITY_CONNECT")
+        filter.addAction(Config.ACTION_MyACCESSITITLITY_SERVICE_CONNECT)
         registerReceiver(receiver, filter)
     }
 
+    /** 打开辅助服务的设置 */
+    private fun openAccessibilityServiceSettings() {
+        try {
+            val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
+            startActivity(intent)
+            Toast.makeText(this, "找[AutoClick],然后开启服务", Toast.LENGTH_LONG).show()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+    }
     override fun onResume() {
         super.onResume()
         if (!isEnabled()) {
@@ -81,7 +97,7 @@ class ListernNotificationActivity : AppCompatActivity() {
                 return
             }
             val action = intent.action
-            Log.d("MainActivity", "receive-->" + action!!)
+            Log.d(Config.TAG, "receive-->" + action!!)
 
         }
     }

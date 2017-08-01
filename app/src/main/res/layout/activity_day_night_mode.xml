@@ -5,20 +5,14 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/monitor"
+        android:id="@+id/day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="点我打开网络监听器" />
+        android:text="白天模式" />
 
     <Button
-        android:id="@+id/setting"
+        android:id="@+id/night"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="设置" />
-
-    <Button
-        android:id="@+id/access"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="辅助设置" />
+        android:text="夜晚模式" />
 </LinearLayout>

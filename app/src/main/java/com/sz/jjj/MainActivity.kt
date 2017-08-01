@@ -11,19 +11,16 @@ import com.sz.jjj.activity.*
 import com.sz.jjj.adapter.HomeAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
-
-
-
 class MainActivity : AppCompatActivity() {
 
     private val ACTIVITY = arrayOf<Class<*>>(
             MeituanBottomNavActivity::class.java, EmptyRecyclerviewActivity::class.java,
             VideoViewActivity::class.java, WebViewActivity::class.java,
-            ListernNotificationActivity::class.java)
+            ListernNotificationActivity::class.java, DayNightModeActivity::class.java)
     private val TITLE = arrayOf(
             "仿美图底部导航", "Recyclerview空布局",
             "VideoView小试牛刀", "WebView进度条",
-            "监听通知消息")
+            "监听通知消息", "白天/夜晚切换")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

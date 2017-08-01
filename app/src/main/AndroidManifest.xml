@@ -27,6 +27,7 @@
         <activity android:name=".activity.VideoViewActivity" />
         <activity android:name=".activity.WebViewActivity" />
         <activity android:name=".activity.ListernNotificationActivity"/>
+        <activity android:name=".activity.DayNightModeActivity"/>
 
         <service android:name=".service.NotificationMonitorService"
             android:label="NotificationMonitor"

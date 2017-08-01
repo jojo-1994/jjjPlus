@@ -16,7 +16,7 @@ class VideoViewActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_videoview)
 
-        val uri = Uri.parse("android.resource://cn.bluemobi.dylan.welcomevideopager/raw/" + R.raw.test1)
+        val uri = Uri.parse("android.resource://com.sz.jjj/raw/" + R.raw.test1)
         play.setOnClickListener(View.OnClickListener { videoView.playVideo(uri) })
         pause.setOnClickListener(View.OnClickListener { videoView.pause() })
         start.setOnClickListener(View.OnClickListener { videoView.start() })

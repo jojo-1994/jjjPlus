@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="custom_color_app_title_layout_bg_day">#4a84e2</color>      <!-- app标题栏背景色 -->
+    <color name="custom_color_app_title_layout_bg_night">#FF1D1D1D</color>      <!-- app标题栏背景色 -->
+</resources>
