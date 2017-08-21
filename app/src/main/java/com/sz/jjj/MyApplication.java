@@ -35,4 +35,5 @@ public class MyApplication extends Application {
         getResources().getDisplayMetrics().xdpi = size.x / DESIGN_WIDTH * 72f;
     }
 
+
 }

@@ -10,6 +10,8 @@ import com.sz.jjj.rxjavaretrofitdemo.subscriber.SubscriberOnNextListener
 import kotlinx.android.synthetic.main.activity_main.*
 
 
+
+
 /**
  * Created by jjj on 2017/7/13.
 @description:
@@ -23,6 +25,14 @@ class MainActivity : AppCompatActivity() {
         tv_subscribe.setOnClickListener() {
             getMovie()
         }
+
+    }
+
+    class A(){
+
+    }
+
+    class B(val a:A){
 
     }
 

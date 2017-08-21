@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:name=".MyApplication"
-        android:theme="@style/AppTheme">
+        android:theme="@style/MarioTheme.Day">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +27,8 @@
         <activity android:name=".activity.VideoViewActivity" />
         <activity android:name=".activity.WebViewActivity" />
         <activity android:name=".activity.ListernNotificationActivity"/>
-        <activity android:name=".activity.DayNightModeActivity"/>
+        <activity android:name=".activity.DayNightModeActivity"
+            android:theme="@style/MarioTheme.Day"/>
 
         <service android:name=".service.NotificationMonitorService"
             android:label="NotificationMonitor"

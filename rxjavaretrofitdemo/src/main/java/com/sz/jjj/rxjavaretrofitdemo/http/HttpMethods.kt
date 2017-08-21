@@ -1,5 +1,6 @@
 package com.sz.jjj.rxjavaretrofitdemo.http
 
+import com.sz.jjj.rxjavaretrofitdemo.log.TxLoggerInterceptor
 import com.sz.jjj.rxjavaretrofitdemo.model.HttpResult
 import com.sz.jjj.rxjavaretrofitdemo.model.Subjects
 import com.sz.jjj.rxjavaretrofitdemo.service.MovieService
@@ -31,6 +32,7 @@ class HttpMethods {
     init {
         val httpClientBuilder = OkHttpClient.Builder()
         httpClientBuilder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
+        httpClientBuilder.addInterceptor(TxLoggerInterceptor())
 
         retrofit = Retrofit.Builder()
                 .client(httpClientBuilder.build())
