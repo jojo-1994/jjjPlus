@@ -27,6 +27,8 @@
         <activity android:name=".activity.VideoViewActivity" />
         <activity android:name=".activity.WebViewActivity" />
         <activity android:name=".activity.ListernNotificationActivity"/>
+        <activity android:name=".activity.DataBaseActivity"/>
+        <activity android:name=".activity.Rotate3dAnimActivity" android:theme="@style/MarioTheme.Day"/>
         <activity android:name=".activity.DayNightModeActivity"
             android:theme="@style/MarioTheme.Day"/>
 
