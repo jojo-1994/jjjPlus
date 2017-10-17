@@ -4,14 +4,14 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import android.view.WindowManager
 import com.sz.jjj.R
+import com.sz.jjj.util.ScreenUtils
 import kotlinx.android.synthetic.main.activity_day_night_mode.*
-
-
-
 
 
 /**
@@ -20,9 +20,28 @@ import kotlinx.android.synthetic.main.activity_day_night_mode.*
  */
 class DayNightModeActivity : AppCompatActivity() {
 
+    lateinit var content:View
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_day_night_mode)
+
+        var mHeight = 0
+        content = findViewById(android.R.id.content)
+        content.getViewTreeObserver().addOnGlobalLayoutListener(ViewTreeObserver.OnGlobalLayoutListener {
+            Log.e("eeeee", "界面有调整")
+            if (content.height != mHeight) {
+                hideNavigationBar() // 隐藏导航栏
+                Log.e("eeeeee", content.height.toString())
+                if (mHeight == 0) {
+                    mHeight = content.height
+                }
+            }
+        })
+
+        Log.e("eeeeedddd", ScreenUtils.getScreenHeight(this).toString())
+        Log.e("eeeee", getStatusBarHeight().toString())
+        Log.e("eeeee", getNavigationBarHeight().toString())
 
         translucent.setOnClickListener(View.OnClickListener {
             setTranslucentStatus()
@@ -37,7 +56,7 @@ class DayNightModeActivity : AppCompatActivity() {
         paddingtop.setOnClickListener(View.OnClickListener {
             setTranslucentStatus2()
             val linear_bar = findViewById(R.id.ll_title) as ViewGroup // 所需要设置控件
-            linear_bar.post { linear_bar.setPadding(0, getStatusBarHeight(), 0, 0) }
+            linear_bar.post { linear_bar.setPadding(0, getStatusBarHeight().toInt(), 0, 0) }
             translucent.setText(translucent.text)
         })
 
@@ -49,6 +68,29 @@ class DayNightModeActivity : AppCompatActivity() {
             setTheme(R.style.MarioTheme_Night)
             image.setBackgroundResource(R.color.background_material_dark)
         })
+
+        hiddenNav.setOnClickListener(View.OnClickListener {
+            hideNavigationBar()
+        })
+    }
+
+    protected fun hideNavigationBar() {
+        //隐藏虚拟按键，并且全屏
+        if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
+            val v = this.window.decorView
+            v.systemUiVisibility = View.GONE
+        } else if (Build.VERSION.SDK_INT >= 19) {
+            //for new api versions.
+            val decorView = window.decorView
+            val uiOptions = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                    View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
+                    //                    View.SYSTEM_UI_FLAG_FULLSCREEN or
+                    View.SYSTEM_UI_FLAG_IMMERSIVE
+
+            decorView.systemUiVisibility = uiOptions
+        }
     }
 
     fun setTranslucentStatus() {
@@ -68,12 +110,30 @@ class DayNightModeActivity : AppCompatActivity() {
         }
     }
 
-    fun getStatusBarHeight(): Int {
+    fun getStatusBarHeight(): Float {
         var result = 0
         val resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android")
         if (resourceId > 0) {
             result = getResources().getDimensionPixelSize(resourceId)
         }
-        return result
+        return result.toFloat()
+    }
+
+    private fun getNavigationBarHeight(): Int {
+        val resources = getResources()
+        val resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android")
+        val height = resources.getDimensionPixelSize(resourceId)
+        Log.v("dbw", "Navi height:" + height)
+        return height
+    }
+
+    fun dip2px(dpValue: Float): Int? {
+        val scale = getResources().getDisplayMetrics().density
+        return (dpValue * scale + 0.5f).toInt()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+//        content.getViewTreeObserver().removeOnGlobalLayoutListener(this)
     }
 }

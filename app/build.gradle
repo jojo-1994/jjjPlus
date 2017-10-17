@@ -35,6 +35,8 @@ dependencies {
     compile rootProject.ext.dependencies["appcompat-v7"]
     compile rootProject.ext.dependencies["recyclerview-v7"]
     compile rootProject.ext.dependencies["RecyclerViewHelper"]
+    compile rootProject.ext.dependencies["material-dialogs"]
+    compile rootProject.ext.dependencies["okhttp"]
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     compile rootProject.ext.dependencies["butterknife8"]
@@ -43,4 +45,33 @@ dependencies {
 }
 repositories {
     mavenCentral()
+}
+
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+signing {
+    required { hasProperty("release") && gradle.taskGraph.hasTask("uploadArchives") }
+    sign configurations.archives
+}
+
+uploadArchives {
+    configuration = configurations.archives
+    repositories.mavenDeployer {
+        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+        repository(url: 'http://localhost:8081/repository/jjj/') {//仓库地址
+            authentication(userName: "admin",//用户名
+                    password: "admin123")//密码
+        }
+
+        pom.project {
+            name 'TxUtils'
+            packaging 'aar'
+            description 'none'
+            url 'http://localhost:8081/repository/jjj/'//仓库地址
+            groupId "com.tianxiabuyi.android"
+            artifactId rootProject.name //LibA
+            version android.defaultConfig.versionName
+        }
+    }
 }

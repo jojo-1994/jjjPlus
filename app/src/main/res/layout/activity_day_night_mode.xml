@@ -76,6 +76,12 @@
         android:text="3、置顶问题" />
 
     <Button
+        android:id="@+id/hiddenNav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4、隐藏底部导航栏" />
+
+    <Button
         android:id="@+id/day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -106,6 +106,7 @@ public class MyAccessibilityService extends AccessibilityService {
 
     @Override
     protected void onServiceConnected() {
+        Log.e("ddddddddddddddddd", "MyAccessibilityService connected!");
         super.onServiceConnected();
         service = this;
         //发送广播，已经连接上了

@@ -7,4 +7,14 @@
         <attr name="progressColor" format="color" />
 
     </declare-styleable>
+
+    <declare-styleable name="SoftKeyView">
+        <attr name="softBoardBgColor" format="reference|color" />
+        <attr name="keyNormalBgColor" format="reference|color" />
+        <attr name="keyPressedBgColor" format="reference|color" />
+        <attr name="keyTextColor" format="reference|color" />
+        <attr name="keyTextSize" format="dimension" />
+        <attr name="keyborderColor" format="reference|color" />
+        <attr name="keyborderSize" format="dimension" />
+    </declare-styleable>
 </resources>

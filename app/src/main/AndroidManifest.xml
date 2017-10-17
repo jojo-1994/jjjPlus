@@ -2,18 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sz.jjj">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".MyApplication"
         android:theme="@style/MarioTheme.Day">
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -26,14 +26,23 @@
         <activity android:name=".activity.EmptyRecyclerviewActivity" />
         <activity android:name=".activity.VideoViewActivity" />
         <activity android:name=".activity.WebViewActivity" />
-        <activity android:name=".activity.ListernNotificationActivity"/>
-        <activity android:name=".activity.DataBaseActivity"/>
-        <activity android:name=".activity.Rotate3dAnimActivity" android:theme="@style/MarioTheme.Day"/>
-        <activity android:name=".activity.DayNightModeActivity"
-            android:theme="@style/MarioTheme.Day"/>
-        <activity android:name=".activity.XmlParseActivity"/>
+        <activity android:name=".activity.ListernNotificationActivity" />
+        <activity android:name=".activity.DataBaseActivity" />
+        <activity
+            android:name=".activity.Rotate3dAnimActivity"
+            android:theme="@style/MarioTheme.Day" />
+        <activity
+            android:name=".activity.DayNightModeActivity"
+            android:theme="@style/MarioTheme.Day" />
+        <activity android:name=".activity.XmlParseActivity" />
+        <activity android:name=".activity.UpdateApkActivity" />
+        <activity android:name=".lockscreen.activity.LockScreenActivity" />
+        <activity android:name=".lockscreen.activity.TimeActivity" />
+        <activity
+            android:name=".keyboard.SoftKeyboardActivity" />
 
-        <service android:name=".service.NotificationMonitorService"
+        <service
+            android:name=".service.NotificationMonitorService"
             android:label="NotificationMonitor"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
@@ -42,15 +51,15 @@
         </service>
 
         <service
-            android:label="@string/app_name"
             android:name=".service.MyAccessibilityService"
+            android:label="@string/app_name"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService"/>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
             <meta-data
                 android:name="android.accessibilityservice"
-                android:resource="@xml/click_config"/>
+                android:resource="@xml/click_config" />
         </service>
 
     </application>

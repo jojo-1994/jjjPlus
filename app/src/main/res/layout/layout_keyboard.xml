@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_a8b0bc" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_weight="0"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/gray_a8b0bc" />
+
+        <RadioGroup
+            android:id="@+id/sofkeyBoard_Type"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <RadioButton
+                android:id="@+id/softBoard_Number"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/bg_radio"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="数字"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/gray_a8b0bc" />
+
+            <RadioButton
+                android:id="@+id/softBoard_Az"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/bg_radio"
+                android:button="@null"
+                android:gravity="center"
+                android:text="字母"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </RadioGroup>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/gray_a8b0bc" />
+
+        <ImageView
+            android:id="@+id/softkeyBoard_colse"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:visibility="gone"
+            android:gravity="left|center_vertical"
+            android:padding="8dp"
+            android:src="@mipmap/ic_softb_close" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/gray_a8b0bc" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_a8b0bc" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_weight="1">
+
+        <com.sz.jjj.keyboard.view.SoftKeyAzLayView
+            android:id="@+id/softkeyBoard_Az"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:keyNormalBgColor="@android:color/white"
+            app:keyPressedBgColor="@color/gray_e8ecf0"
+            app:keyTextColor="@android:color/black"
+            app:keyTextSize="20sp"
+            app:keyborderColor="#99a8b0bc"
+            app:keyborderSize="1px" />
+
+        <com.sz.jjj.keyboard.view.SoftKeyNumLayView
+            android:id="@+id/softkeyBoard_Number"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            app:keyNormalBgColor="@android:color/white"
+            app:keyPressedBgColor="@color/gray_e8ecf0"
+            app:keyTextColor="@android:color/black"
+            app:keyTextSize="20sp"
+            app:keyborderColor="#99a8b0bc"
+            app:keyborderSize="1px" />
+    </RelativeLayout>
+
+</LinearLayout>
