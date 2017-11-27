@@ -1,11 +1,11 @@
-def supportVersion = "25.3.1"
+def supportVersion = "26.0.2"
 
 ext {
     versions = [
-            "buildToolsVersion": "25.0.0",
-            "compileSdkVersion": 25,
-            "minSdkVersion"    : 15,
-            "targetSdkVersion" : 25,
+            "compileSdkVersion": 26,
+            "buildToolsVersion": "26.0.2",
+            "minSdkVersion"    : 16,
+            "targetSdkVersion" : 26,
             "versionCode"      : 1,
             "versionName"      : "1.0"
     ]

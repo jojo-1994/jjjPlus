@@ -1,6 +1,5 @@
 package com.sz.jjj
 
-import android.accessibilityservice.AccessibilityService
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -22,14 +21,16 @@ class MainActivity : AppCompatActivity() {
             ListernNotificationActivity::class.java, DayNightModeActivity::class.java,
             DataBaseActivity::class.java, Rotate3dAnimActivity::class.java,
             XmlParseActivity::class.java, UpdateApkActivity::class.java,
-            LockScreenActivity::class.java, SoftKeyboardActivity::class.java)
+            LockScreenActivity::class.java, SoftKeyboardActivity::class.java,
+            SlidingTabActivity::class.java, FiveStarReViewActivity::class.java)
     private val TITLE = arrayOf(
             "仿美图底部导航", "Recyclerview空布局",
             "VideoView小试牛刀", "WebView进度条",
             "监听通知消息", "白天/夜晚切换",
             "数据库操作", "3d翻转动画",
             "xml解析", "APK的更新",
-            "锁屏设置", "自定义软键盘")
+            "锁屏设置", "自定义软键盘",
+            "SlidingTabLayout", "五星点评")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +50,6 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView.setAdapter(homeAdapter)
     }
-
 
 
 }

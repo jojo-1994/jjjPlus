@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 
+import com.sz.jjj.MainActivity;
 import com.sz.jjj.R;
 import com.sz.jjj.lockscreen.impl.IMainView;
 import com.sz.jjj.lockscreen.impl.ScreenPresenter;
@@ -25,6 +26,7 @@ public class LockScreenActivity extends AppCompatActivity implements IMainView {
     private String TAG = "LockScreenActivity";
     BroadcastReceiver mBatInfoReceiver;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -49,6 +51,7 @@ public class LockScreenActivity extends AppCompatActivity implements IMainView {
 
                 if (Intent.ACTION_SCREEN_ON.equals(action)) {
                     Log.e(TAG, "screen on");
+                    startActivity(new Intent(LockScreenActivity.this, MainActivity.class));
                 } else if (Intent.ACTION_SCREEN_OFF.equals(action)) {
                     Log.e(TAG, "screen off");
                 } else if (Intent.ACTION_USER_PRESENT.equals(action)) {

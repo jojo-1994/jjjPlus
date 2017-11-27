@@ -5,6 +5,7 @@ import android.content.res.Configuration;
 import android.graphics.Point;
 import android.view.WindowManager;
 
+
 /**
  * Created by jjj on 2017/7/28.
  *
@@ -18,7 +19,6 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
         resetDensity();
     }
 

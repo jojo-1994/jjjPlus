@@ -4,8 +4,8 @@ apply plugin: 'kotlin-android-extensions' // 启动扩展支持直接使用id
 
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion rootProject.ext.versions.compileSdkVersion
+    buildToolsVersion rootProject.ext.versions.buildToolsVersion
     defaultConfig {
         applicationId "com.sz.jjj"
         minSdkVersion rootProject.ext.versions.minSdkVersion
@@ -25,6 +25,7 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
+
 }
 
 dependencies {
@@ -42,6 +43,7 @@ dependencies {
     compile rootProject.ext.dependencies["butterknife8"]
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
     compile project(':baselibrary')
+    compile 'com.google.guava:guava:23.4-android'
 }
 repositories {
     mavenCentral()

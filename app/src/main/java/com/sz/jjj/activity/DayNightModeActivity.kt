@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import android.view.WindowManager
 import com.sz.jjj.R
@@ -55,7 +54,7 @@ class DayNightModeActivity : AppCompatActivity() {
 
         paddingtop.setOnClickListener(View.OnClickListener {
             setTranslucentStatus2()
-            val linear_bar = findViewById(R.id.ll_title) as ViewGroup // 所需要设置控件
+            val linear_bar = ll_title // 所需要设置控件
             linear_bar.post { linear_bar.setPadding(0, getStatusBarHeight().toInt(), 0, 0) }
             translucent.setText(translucent.text)
         })

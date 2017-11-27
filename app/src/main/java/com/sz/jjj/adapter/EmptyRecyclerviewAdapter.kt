@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import com.sz.jjj.R
 import com.sz.jjj.baselibrary.utils.ToastUtils
+import kotlinx.android.synthetic.main.item_home_view.view.*
 
 
 /**
@@ -49,7 +50,8 @@ class EmptyRecyclerviewAdapter(var context: Context) : RecyclerView.Adapter<Empt
         val mButton: Button
 
         init {
-            mButton = itemView.findViewById(R.id.text) as Button
+            mButton = itemView.text as Button
+
         }
     }
 }

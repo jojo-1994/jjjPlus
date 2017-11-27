@@ -1,1 +1,2 @@
-include ':app', ':baselibrary', ':mvpdemo', ':rxjavaretrofitdemo'
+include ':app', ':baselibrary'
+//, ':mvpdemo', ':rxjavaretrofitdemo', ':speechDemo'

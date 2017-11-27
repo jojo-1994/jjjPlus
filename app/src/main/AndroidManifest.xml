@@ -38,8 +38,9 @@
         <activity android:name=".activity.UpdateApkActivity" />
         <activity android:name=".lockscreen.activity.LockScreenActivity" />
         <activity android:name=".lockscreen.activity.TimeActivity" />
-        <activity
-            android:name=".keyboard.SoftKeyboardActivity" />
+        <activity android:name=".activity.SlidingTabActivity" />
+        <activity android:name=".keyboard.SoftKeyboardActivity" />
+        <activity android:name=".activity.FiveStarReViewActivity" />
 
         <service
             android:name=".service.NotificationMonitorService"
