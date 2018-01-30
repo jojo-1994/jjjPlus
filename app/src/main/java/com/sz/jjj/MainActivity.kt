@@ -22,7 +22,8 @@ class MainActivity : AppCompatActivity() {
             DataBaseActivity::class.java, Rotate3dAnimActivity::class.java,
             XmlParseActivity::class.java, UpdateApkActivity::class.java,
             LockScreenActivity::class.java, SoftKeyboardActivity::class.java,
-            SlidingTabActivity::class.java, FiveStarReViewActivity::class.java)
+            SlidingTabActivity::class.java, FiveStarReViewActivity::class.java,
+            BlueToothActivity::class.java, MusicButtonActivity::class.java)
     private val TITLE = arrayOf(
             "仿美图底部导航", "Recyclerview空布局",
             "VideoView小试牛刀", "WebView进度条",
@@ -30,7 +31,8 @@ class MainActivity : AppCompatActivity() {
             "数据库操作", "3d翻转动画",
             "xml解析", "APK的更新",
             "锁屏设置", "自定义软键盘",
-            "SlidingTabLayout", "五星点评")
+            "SlidingTabLayout", "五星点评",
+            "蓝牙demo", "旋转动画")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

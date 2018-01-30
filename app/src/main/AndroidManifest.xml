@@ -6,7 +6,11 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--允许程序连接到已配对的蓝牙设备。-->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <!--允许程序发现和配对蓝牙设备。-->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -15,7 +19,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MarioTheme.Day">
-        <activity android:name=".MainActivity">
+        <!--<activity android:name=".MainActivity">-->
+        <!--<activity android:name=".activity.ViewDragHelperActivity">-->
+        <activity android:name=".activity.TestFragmentActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,6 +47,10 @@
         <activity android:name=".activity.SlidingTabActivity" />
         <activity android:name=".keyboard.SoftKeyboardActivity" />
         <activity android:name=".activity.FiveStarReViewActivity" />
+        <activity android:name=".activity.BlueToothActivity" />
+        <activity android:name=".activity.MusicButtonActivity" />
+
+
 
         <service
             android:name=".service.NotificationMonitorService"

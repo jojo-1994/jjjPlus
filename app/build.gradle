@@ -40,6 +40,7 @@ dependencies {
     compile rootProject.ext.dependencies["RecyclerViewHelper"]
     compile rootProject.ext.dependencies["material-dialogs"]
     compile rootProject.ext.dependencies["okhttp"]
+    compile rootProject.ext.dependencies["eventbus"]
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     compile rootProject.ext.dependencies["butterknife8"]
