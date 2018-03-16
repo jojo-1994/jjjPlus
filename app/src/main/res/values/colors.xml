@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#f22b77</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+  <color name="colorPrimary">#f22b77</color>
+  <color name="colorPrimaryDark">#303F9F</color>
+  <color name="colorAccent">#FF4081</color>
 
-    <color name="gray_a8b0bc">#a8b0bc</color>
-    <color name="gray_cfd4da">#cfd4da</color>
-    <color name="gray_e8ecf0">#e8ecf0</color>
+  <color name="gray_a8b0bc">#a8b0bc</color>
+  <color name="gray_cfd4da">#cfd4da</color>
+  <color name="gray_e8ecf0">#e8ecf0</color>
 
-    <color name="key_normal_color">#ffffff</color>
-    <color name="key_selected_color">#e8ecf0</color>
+  <color name="soft_keyboard_normal_color">#ffffff</color>
+  <color name="soft_keyboard_pressed_color">#e8ecf0</color>
 </resources>

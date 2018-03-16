@@ -41,20 +41,21 @@ public class PermissionsFragment extends Fragment {
      */
     private void showMissingPermissionDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(R.string.help);
-        builder.setMessage(R.string.string_help_text);
+        builder.setTitle(R.string.permission_help);
+        builder.setMessage(R.string.permission_help_des);
         builder.setCancelable(dialogCanCancel);
 
         // 取消
-        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.permission_cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if (listener != null)
+                if (listener != null) {
                     listener.result(XPermission.lacksPermissions(getActivity(), PERMISSIONS));
+                }
             }
         });
 
-        builder.setPositiveButton(R.string.settings, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.permission_settings, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 startAppSettings(getActivity());
@@ -63,15 +64,17 @@ public class PermissionsFragment extends Fragment {
         builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
             public void onCancel(DialogInterface dialog) {
-                if (listener != null)
+                if (listener != null) {
                     listener.result(XPermission.lacksPermissions(getActivity(), PERMISSIONS));
+                }
             }
         });
         builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
-                if (listener != null)
+                if (listener != null) {
                     listener.result(XPermission.lacksPermissions(getActivity(), PERMISSIONS));
+                }
             }
         });
         builder.show();
@@ -91,18 +94,20 @@ public class PermissionsFragment extends Fragment {
 
         if (PERMISSIONS_REQUEST_CODE == requestCode && listener != null) {
             String[] tempPermission = XPermission.lacksPermissions(getActivity(), PERMISSIONS);
-            if (isShowDialog && tempPermission.length > 0)
+            if (isShowDialog && tempPermission.length > 0) {
                 showMissingPermissionDialog();
-            else
+            } else {
                 listener.result(tempPermission);
+            }
         }
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == DIALOG_REQUEST_CODE && listener != null)
+        if (requestCode == DIALOG_REQUEST_CODE && listener != null) {
             listener.result(XPermission.lacksPermissions(getActivity(), PERMISSIONS));
+        }
     }
 
     @TargetApi(Build.VERSION_CODES.M)

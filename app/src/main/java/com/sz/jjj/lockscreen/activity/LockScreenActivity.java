@@ -1,19 +1,15 @@
 package com.sz.jjj.lockscreen.activity;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.text.format.DateFormat;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.sz.jjj.MainActivity;
 import com.sz.jjj.R;
-import com.sz.jjj.lockscreen.impl.IMainView;
-import com.sz.jjj.lockscreen.impl.ScreenPresenter;
 
 /**
  * Created by jjj on 2017/9/6.
@@ -21,90 +17,80 @@ import com.sz.jjj.lockscreen.impl.ScreenPresenter;
  * @description:
  */
 
-public class LockScreenActivity extends AppCompatActivity implements IMainView {
-    private ScreenPresenter mPresenter;
-    private String TAG = "LockScreenActivity";
-    BroadcastReceiver mBatInfoReceiver;
+public class LockScreenActivity extends AppCompatActivity {
+
+    private static final int MSGKEY = 0x10001;
+
+    private long exitTime = 0;
+
+    //屏保右上角的系统时间
+    private TextView mTime;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        mPresenter = new ScreenPresenter(this);
-        final IntentFilter filter = new IntentFilter();
-        // 屏幕灭屏广播
-        filter.addAction(Intent.ACTION_SCREEN_OFF);
-        // 屏幕亮屏广播
-        filter.addAction(Intent.ACTION_SCREEN_ON);
-        // 屏幕解锁广播
-        filter.addAction(Intent.ACTION_USER_PRESENT);
-        // 当长按电源键弹出“关机”对话或者锁屏时系统会发出这个广播
-        // example：有时候会用到系统对话框，权限可能很高，会覆盖在锁屏界面或者“关机”对话框之上，
-        // 所以监听这个广播，当收到时就隐藏自己的对话，如点击pad右下角部分弹出的对话框
-        filter.addAction(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
-
-        mBatInfoReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(final Context context, final Intent intent) {
-                Log.e(TAG, "onReceive");
-                String action = intent.getAction();
-
-                if (Intent.ACTION_SCREEN_ON.equals(action)) {
-                    Log.e(TAG, "screen on");
-                    startActivity(new Intent(LockScreenActivity.this, MainActivity.class));
-                } else if (Intent.ACTION_SCREEN_OFF.equals(action)) {
-                    Log.e(TAG, "screen off");
-                } else if (Intent.ACTION_USER_PRESENT.equals(action)) {
-                    Log.e(TAG, "screen unlock");
-                } else if (Intent.ACTION_CLOSE_SYSTEM_DIALOGS.equals(intent.getAction())) {
-                    Log.e(TAG, " receive Intent.ACTION_CLOSE_SYSTEM_DIALOGS");
-                }
-            }
-        };
-        Log.e(TAG, "registerReceiver");
-        registerReceiver(mBatInfoReceiver, filter);
+        setContentView(R.layout.lock_screen_activity);
+        mTime = (TextView) findViewById(R.id.mytime);
+        //启动线程刷新屏保界面右上角的时间
+        new TimeThread().start();
     }
 
+    public class TimeThread extends Thread {
+        @Override
+        public void run() {
+            do {
+                try {
+                    //更新时间
+                    Thread.sleep(1000);
+                    Message msg = new Message();
+                    msg.what = MSGKEY;
+                    mHandler.sendMessage(msg);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            } while (true);
+        }
+    }
+
+    /**
+     * 2秒内连续两次按下回车键退出屏保
+     * 重写方法
+     *
+     * @param keyCode
+     * @param event
+     * @return
+     * @see android.app.Activity#onKeyDown(int, android.view.KeyEvent)
+     */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        //重置计时
-        mPresenter.resetTipsTimer();
+        if (keyCode == KeyEvent.KEYCODE_ENTER) {
+            exit();
+            return false;
+        }
         return super.onKeyDown(keyCode, event);
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        mPresenter.resetTipsTimer();
-        Log.e("touch", "touch");
-        return super.onTouchEvent(event);
+    public void exit() {
+        if ((System.currentTimeMillis() - exitTime) > 2000) {
+            Toast.makeText(getApplicationContext(), "再按一次解锁键即可进入应用", Toast.LENGTH_SHORT).show();
+            exitTime = System.currentTimeMillis();
+        } else {
+            finish();
+        }
     }
 
-    @Override
-    protected void onResume() {
-        //启动默认开始计时
-        mPresenter.startTipsTimer();
-        super.onResume();
-    }
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case MSGKEY:
+                    long sysTime = System.currentTimeMillis();
+                    CharSequence sysTimeStr = DateFormat.format("hh:mm", sysTime);
+                    mTime.setText(sysTimeStr);
+                    break;
 
-    @Override
-    protected void onPause() {
-        //有其他操作时结束计时
-        mPresenter.endTipsTimer();
-        super.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mPresenter.endTipsTimer();
-        unregisterReceiver(mBatInfoReceiver);
-    }
-
-    @Override
-    public void showTipsView() {
-        //展示屏保界面
-        Intent intent = new Intent(LockScreenActivity.this, TimeActivity.class);
-        startActivity(intent);
-    }
-
+            }
+        }
+    };
 }

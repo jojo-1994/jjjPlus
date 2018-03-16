@@ -1,57 +1,47 @@
 package com.sz.jjj
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
-import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
-import com.chad.library.adapter.base.listener.OnItemClickListener
-import com.sz.jjj.activity.*
-import com.sz.jjj.adapter.HomeAdapter
-import com.sz.jjj.keyboard.SoftKeyboardActivity
-import com.sz.jjj.lockscreen.activity.LockScreenActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import com.chad.library.adapter.base.BaseViewHolder
+import com.sz.jjj.access.ListernNotificationActivity
+import com.sz.jjj.anim.activity.AnimActivity
+import com.sz.jjj.ble.activity.BlueToothActivity
+import com.sz.jjj.database.DataBaseActivity
+import com.sz.jjj.lockscreen.activity.LockScreenStartActivity
+import com.sz.jjj.recyclerview.RecyclerViewUtils
+import com.sz.jjj.recyclerview.activity.EmptyRecyclerviewActivity
+import com.sz.jjj.statusbar.StatusBarActivity
+import com.sz.jjj.updateapk.UpdateApkActivity
+import com.sz.jjj.view.activity.CustomViewActivity
+import com.sz.jjj.xml.XmlParseActivity
+import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val ACTIVITY = arrayOf<Class<*>>(
-            MeituanBottomNavActivity::class.java, EmptyRecyclerviewActivity::class.java,
-            VideoViewActivity::class.java, WebViewActivity::class.java,
-            ListernNotificationActivity::class.java, DayNightModeActivity::class.java,
-            DataBaseActivity::class.java, Rotate3dAnimActivity::class.java,
-            XmlParseActivity::class.java, UpdateApkActivity::class.java,
-            LockScreenActivity::class.java, SoftKeyboardActivity::class.java,
-            SlidingTabActivity::class.java, FiveStarReViewActivity::class.java,
-            BlueToothActivity::class.java, MusicButtonActivity::class.java)
-    private val TITLE = arrayOf(
-            "仿美图底部导航", "Recyclerview空布局",
-            "VideoView小试牛刀", "WebView进度条",
-            "监听通知消息", "白天/夜晚切换",
-            "数据库操作", "3d翻转动画",
-            "xml解析", "APK的更新",
-            "锁屏设置", "自定义软键盘",
-            "SlidingTabLayout", "五星点评",
-            "蓝牙demo", "旋转动画")
+    private val map = mapOf<String, Class<*>>(
+            "动画" to AnimActivity::class.java,
+            "Recyclerview" to EmptyRecyclerviewActivity::class.java,
+            "控件" to CustomViewActivity::class.java,
+            "状态栏" to StatusBarActivity::class.java,
+            "辅助服务" to ListernNotificationActivity::class.java,
+            "数据库" to DataBaseActivity::class.java,
+            "xml解析" to XmlParseActivity::class.java,
+            "APK的更新" to UpdateApkActivity::class.java,
+            "锁屏设置" to LockScreenStartActivity::class.java,
+            "蓝牙" to BlueToothActivity::class.java
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        setContentView(R.layout.activity_main)
-
-        recyclerView.setLayoutManager(GridLayoutManager(this, 2))
-
-        val homeAdapter = HomeAdapter(R.layout.item_home_view, TITLE.toList())
-
-        recyclerView.addOnItemTouchListener(object : OnItemClickListener() {
-            override fun onSimpleItemClick(adapter: BaseQuickAdapter<*, *>, view: View, position: Int) {
-                val intent = Intent(this@MainActivity, ACTIVITY[position])
-                startActivity(intent)
-            }
-        })
-
-        recyclerView.setAdapter(homeAdapter)
+        setContentView(R.layout.main_activity)
+        RecyclerViewUtils.setGridLayoutManager(this, recyclerView, map)
     }
 
+    class HomeAdapter(layoutResId: Int, data: List<String>) : BaseQuickAdapter<String, BaseViewHolder>(layoutResId, data) {
 
+        override fun convert(helper: BaseViewHolder, item: String) {
+            helper.setText(R.id.text, item)
+        }
+    }
 }
