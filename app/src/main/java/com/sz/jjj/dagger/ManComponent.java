@@ -8,7 +8,9 @@ import dagger.Component;
  * @description:
  */
 
-@Component
+//@Singleton
+@MyScope
+@Component(modules = CarModule.class)
 public interface ManComponent {
     void injectMan(Man man);
 }

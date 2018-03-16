@@ -37,12 +37,12 @@ class WebViewActivity : AppCompatActivity() {
         settings.setJavaScriptEnabled(true)
         settings.setDomStorageEnabled(false)
         settings.setDefaultTextEncodingName("utf-8")
-        webView.setWebChromeClient(object : WebChromeClient() {
+        webView.webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(view: WebView?, newProgress: Int) {
                 super.onProgressChanged(view, newProgress)
 
                 //如果进度条隐藏则让它显示
-                if (View.GONE === mProgress.getVisibility()) {
+                if (View.GONE == mProgress.getVisibility()) {
                     mProgress.setVisibility(View.VISIBLE)
                 }
 
@@ -55,7 +55,7 @@ class WebViewActivity : AppCompatActivity() {
                     mProgress.setCurProgress(1000, object : WebProgressBarView.EventEndListener {
                         override fun onEndEvent() {
                             isContinue = false
-                            if (mProgress.getVisibility() === View.VISIBLE) {
+                            if (mProgress.getVisibility() == View.VISIBLE) {
                                 hideProgress()
                             }
                         }
@@ -64,22 +64,22 @@ class WebViewActivity : AppCompatActivity() {
                     mProgress.setNormalProgress(newProgress)
                 }
             }
-        })
+        }
         webView.loadUrl("https://www.baidu.com/")
     }
 
     fun hideProgress() {
         val animation = getDismissAnim(this)
         animation.setAnimationListener(object : Animation.AnimationListener {
-            override fun onAnimationRepeat(animation: Animation?) {
+            override fun onAnimationRepeat(a: Animation?) {
 
             }
 
-            override fun onAnimationEnd(animation: Animation?) {
+            override fun onAnimationEnd(a: Animation?) {
                 mProgress.setVisibility(View.GONE)
             }
 
-            override fun onAnimationStart(animation: Animation?) {
+            override fun onAnimationStart(a: Animation?) {
             }
 
         })

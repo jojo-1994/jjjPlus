@@ -1,5 +1,7 @@
 package com.sz.jjj.dagger;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,36 +18,46 @@ import dagger.Lazy;
  */
 
 public class Man {
-    @Inject
-    Lazy<Car> lazyCar;
 
     @Inject
     Car car;
 
     @Inject
-    @Named("car1")
-    Car1 car1;
+    Lazy<Car> lazyCar;
 
     @Inject
-    Provider<Car> providerCar;
+    Provider<Car> carProvider;
+
+    @Inject
+    @Named("car1")
+    Car carQualifier;
 
     public Man() {
         DaggerManComponent.create().injectMan(this);
     }
 
     public String getCarColor() {
+        return car.getColor();
+    }
+
+    public String getCarColor2() {
+        return carQualifier.getColor();
+    }
+
+    public String getCarColor3() {
         return lazyCar.get().getColor();
     }
 
-    public List<Car> makeCars() {
-        List<Car> list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            list.add(providerCar.get());
+    public List<Car> makeCar(int num) {
+        List<Car> carList = new ArrayList(num);
+        for (int i = 0; i < num; i++) {
+            carList.add(carProvider.get());
         }
-        return list;
-    }
-
-    public String getCar1Color() {
-        return car1.getColor();
+        Log.e("ddd", carList.get(0).hashCode()+"");
+        Log.e("ddd", carList.get(1).hashCode()+"");
+        Log.e("ddd", carList.get(1).getColor());
+        carList.get(0).setColor("blue");
+        Log.e("ddd", carList.get(1).getColor());
+        return carList;
     }
 }

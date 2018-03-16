@@ -19,16 +19,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MarioTheme.Day">
-        <!--<activity android:name=".MainActivity">-->
-        <!--<activity android:name=".activity.ViewDragHelperActivity">-->
-        <activity android:name=".dagger.DraggerActivity">
+        <!--<activity android:name=".activity.MeituanBottomNavActivity">-->
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MeituanBottomNavActivity" />
+        <!--<activity android:name=".activity.MeituanBottomNavActivity" />-->
         <activity android:name=".activity.EmptyRecyclerviewActivity" />
         <activity android:name=".activity.VideoViewActivity" />
         <activity android:name=".activity.WebViewActivity" />

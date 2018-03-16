@@ -9,10 +9,19 @@ import javax.inject.Inject;
  */
 
 public class Car {
-    @Inject
-    public Car() {}
 
-    public String getColor(){
-        return "red";
+    String color = "red";
+
+    @Inject
+    public Car() {
     }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
 }

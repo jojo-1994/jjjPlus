@@ -5,6 +5,13 @@ import android.content.res.Configuration;
 import android.graphics.Point;
 import android.view.WindowManager;
 
+import com.sz.jjj.dagger.MyScope;
+
+import javax.inject.Inject;
+
+import dagger.releasablereferences.ForReleasableReferences;
+import dagger.releasablereferences.ReleasableReferenceManager;
+
 
 /**
  * Created by jjj on 2017/7/28.
@@ -35,5 +42,14 @@ public class MyApplication extends Application {
         getResources().getDisplayMetrics().xdpi = size.x / DESIGN_WIDTH * 72f;
     }
 
+    @Inject
+    @ForReleasableReferences(MyScope.class)
+    ReleasableReferenceManager myScopeReferences;
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        myScopeReferences.releaseStrongReferences();
+    }
 
 }

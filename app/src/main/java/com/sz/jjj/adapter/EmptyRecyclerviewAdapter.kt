@@ -19,13 +19,13 @@ class EmptyRecyclerviewAdapter(var context: Context) : RecyclerView.Adapter<Empt
 
     val mData = ArrayList<String>();
 
-    fun addData(){
+    fun addData() {
         mData.add("test")
         notifyItemInserted(mData.size)
     }
 
-    fun deleteData(){
-        if(mData.size==0){
+    fun deleteData() {
+        if (mData.size == 0) {
             ToastUtils.show(context, "没有数据了")
             return
         }
@@ -50,8 +50,7 @@ class EmptyRecyclerviewAdapter(var context: Context) : RecyclerView.Adapter<Empt
         val mButton: Button
 
         init {
-            mButton = itemView.text as Button
-
+            mButton = itemView.text
         }
     }
 }

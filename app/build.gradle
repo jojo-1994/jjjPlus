@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions' // 启动扩展支持直接使用id
-
+//apply plugin: 'com.neenbedankt.android-apt' // 启动扩展支持直接使用id
 
 android {
     compileSdkVersion rootProject.ext.versions.compileSdkVersion
@@ -12,6 +12,7 @@ android {
         targetSdkVersion rootProject.ext.versions.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -28,32 +29,44 @@ android {
         resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.2'
     }
 
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
     compile rootProject.ext.dependencies["appcompat-v7"]
     compile rootProject.ext.dependencies["recyclerview-v7"]
     compile rootProject.ext.dependencies["RecyclerViewHelper"]
     compile rootProject.ext.dependencies["material-dialogs"]
     compile rootProject.ext.dependencies["okhttp"]
     compile rootProject.ext.dependencies["eventbus"]
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    compile rootProject.ext.dependencies["butterknife8"]
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
-    compile project(':baselibrary')
-    compile 'com.google.guava:guava:23.4-android'
 
-    implementation 'com.google.dagger:dagger:2.14.1'
+    // Kotlin 标准库
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    // 针对jdk8
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    // Kotlin 反射
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    implementation project(':baselibrary')
+    compile 'com.google.guava:guava:24.0-android'
+    // butterknife
+    compile rootProject.ext.dependencies["butterknife8"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    // dagger
+    compile 'com.google.dagger:dagger:2.14.1'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.14.1'
     compile 'com.google.dagger:dagger-android:2.14.1'
     compile 'com.google.dagger:dagger-android-support:2.14.1' // if you use the support libraries
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.14.1'
 }
+
 repositories {
     mavenCentral()
 }

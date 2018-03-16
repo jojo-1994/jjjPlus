@@ -1,6 +1,5 @@
 package com.sz.jjj.service
 
-import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.app.Notification
 import android.content.Intent
@@ -20,7 +19,6 @@ class NotificationMonitorService : NotificationListenerService() {
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     override fun onNotificationPosted(sbn: StatusBarNotification?) {
         super.onNotificationPosted(sbn)
-        @SuppressLint("NewApi")
         val extras = sbn!!.getNotification().extras;
         // 获取接收消息APP的包名
         val notificationPkg = sbn.getPackageName();
@@ -45,7 +43,7 @@ class NotificationMonitorService : NotificationListenerService() {
         super.onNotificationRemoved(sbn)
         val extras = sbn!!.getNotification().extras;
         // 获取接收消息APP的包名
-        val notificationPkg = sbn.getPackageName();
+//        val notificationPkg = sbn.getPackageName();
         // 获取接收消息的抬头
         val notificationTitle = extras.getString(Notification.EXTRA_TITLE);
         // 获取接收消息的内容
