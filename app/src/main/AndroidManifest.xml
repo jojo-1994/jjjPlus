@@ -27,7 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--<activity android:name=".activity.MeituanBottomNavActivity" />-->
+        <activity android:name=".activity.MeituanBottomNavActivity" />
         <activity android:name=".activity.EmptyRecyclerviewActivity" />
         <activity android:name=".activity.VideoViewActivity" />
         <activity android:name=".activity.WebViewActivity" />
