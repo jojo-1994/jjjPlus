@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--键盘-->
 <resources>
-    <dimen name="soft_keyboard_horizontalGap">0px</dimen>
-    <dimen name="soft_keyboard_verticalGap">0px</dimen>
-    <dimen name="soft_keyboard_height">60dp</dimen>
-    <dimen name="soft_keyboard_double_height">120dp</dimen>
+    <dimen name="view_softkeyboard_horizontalGap">0px</dimen>
+    <dimen name="view_softkeyboard_verticalGap">0px</dimen>
+    <dimen name="view_softkeyboard_height">60dp</dimen>
+    <dimen name="view_softkeyboard_double_height">120dp</dimen>
 </resources>

@@ -40,14 +40,13 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
     compile rootProject.ext.dependencies["appcompat-v7"]
     compile rootProject.ext.dependencies["recyclerview-v7"]
     compile rootProject.ext.dependencies["RecyclerViewHelper"]
     compile rootProject.ext.dependencies["material-dialogs"]
     compile rootProject.ext.dependencies["okhttp"]
     compile rootProject.ext.dependencies["eventbus"]
-
+    compile rootProject.ext.dependencies["design"]
     // Kotlin 标准库
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     // 针对jdk8
@@ -63,7 +62,8 @@ dependencies {
     compile 'com.google.dagger:dagger:2.14.1'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.14.1'
     compile 'com.google.dagger:dagger-android:2.14.1'
-    compile 'com.google.dagger:dagger-android-support:2.14.1' // if you use the support libraries
+    compile 'com.google.dagger:dagger-android-support:2.14.1'
+    // if you use the support libraries
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.14.1'
 }
 

@@ -56,7 +56,7 @@
         android:shadowRadius="0.0"
         android:visibility="gone"
         android:keyPreviewHeight="0dp"
-        android:keyBackground="@drawable/soft_keyboard_btn_selector"
+        android:keyBackground="@drawable/view_softkeyboard_btn_selector"
         android:keyTextColor="@android:color/black"/>
 
 </LinearLayout>

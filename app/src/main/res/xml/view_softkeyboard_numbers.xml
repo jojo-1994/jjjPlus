@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
           android:horizontalGap="0dp"
-          android:keyHeight="@dimen/soft_keyboard_height"
+          android:keyHeight="@dimen/view_softkeyboard_height"
           android:keyWidth="25%p"
           android:verticalGap="0dp">
   <Row>
@@ -19,8 +19,8 @@
         android:codes="-5"
         android:isRepeatable="true"
         android:keyEdgeFlags="right"
-        android:keyHeight="@dimen/soft_keyboard_double_height"
-        android:keyIcon="@drawable/soft_keyboard_btn_delete"/>
+        android:keyHeight="@dimen/view_softkeyboard_double_height"
+        android:keyIcon="@drawable/view_softkeyboard_btn_delete"/>
   </Row>
 
   <Row>
@@ -54,7 +54,7 @@
         android:codes="-3"
         android:isRepeatable="true"
         android:keyEdgeFlags="right"
-        android:keyHeight="@dimen/soft_keyboard_double_height"
+        android:keyHeight="@dimen/view_softkeyboard_double_height"
         android:keyLabel="完成"/>
   </Row>
 

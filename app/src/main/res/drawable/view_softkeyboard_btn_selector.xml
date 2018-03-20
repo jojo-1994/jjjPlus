@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <selector
     xmlns:android="http://schemas.android.com/apk/res/android">
-  <item android:drawable="@color/soft_keyboard_normal_color" android:state_enabled="true"/>
-  <item android:drawable="@color/soft_keyboard_pressed_color" android:state_pressed="true"/>
+  <item android:drawable="@color/view_softkeyboard_normal_color" android:state_enabled="true"/>
+  <item android:drawable="@color/view_softkeyboard_pressed_color" android:state_pressed="true"/>
   <!--<item android:drawable="@color/key_normal_color" />-->
   <item>
     <shape>

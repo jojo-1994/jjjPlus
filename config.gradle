@@ -4,7 +4,7 @@ ext {
     versions = [
             "compileSdkVersion": 26,
             "buildToolsVersion": "26.0.2",
-            "minSdkVersion"    : 19,
+            "minSdkVersion"    : 14,
             "targetSdkVersion" : 26,
             "versionCode"      : 1,
             "versionName"      : "1.0"
@@ -14,6 +14,7 @@ ext {
             "support-v4"              : "com.android.support:support-v4:${supportVersion}",
             "appcompat-v7"            : "com.android.support:appcompat-v7:${supportVersion}",
             "recyclerview-v7"         : "com.android.support:recyclerview-v7:${supportVersion}",
+            "design"                  : "com.android.support:design:${supportVersion}",
             "RecyclerViewHelper"      : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22",  //RecyclerAdapter https://github.com/CymChad/BaseRecyclerViewAdapterHelper
             "butterknife7"            : "com.jakewharton:butterknife:7.0.1",   //注解 https://github.com/JakeWharton/butterknife
             "butterknife8"            : "com.jakewharton:butterknife:8.6.0",   //注解 https://github.com/JakeWharton/butterknife

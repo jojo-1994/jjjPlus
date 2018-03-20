@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Created by jjj on 2017/10/16.
  *
- * @description:
+ * @description: 自定义软键盘
  */
 
 public class KeyboardUtil {
@@ -42,8 +42,8 @@ public class KeyboardUtil {
 
         initEditText(editTexts);
 
-        mNumberKeyboard = new Keyboard(mActivity, R.xml.soft_keyboard_numbers);
-        mLetterKeyboard = new Keyboard(mActivity, R.xml.soft_keyboard_qwerty);
+        mNumberKeyboard = new Keyboard(mActivity, R.xml.view_softkeyboard_numbers);
+        mLetterKeyboard = new Keyboard(mActivity, R.xml.view_softkeyboard_qwerty);
         mKeyboardView = (KeyboardView) mActivity.findViewById(R.id.keyboard_view);
         mKeyboardView.setKeyboard(mNumberKeyboard);
         mKeyboardView.setEnabled(true);
@@ -169,8 +169,8 @@ public class KeyboardUtil {
     };
 
     private void changeKeyboart() {
-        Drawable capsLock = ContextCompat.getDrawable(mActivity, R.drawable.soft_keyboard_btn_capslock);
-        Drawable unCapsLock = ContextCompat.getDrawable(mActivity, R.drawable.soft_keyboard_btn_uncapslock);
+        Drawable capsLock = ContextCompat.getDrawable(mActivity, R.drawable.view_softkeyboard_btn_capslock);
+        Drawable unCapsLock = ContextCompat.getDrawable(mActivity, R.drawable.view_softkeyboard_btn_uncapslock);
         List<Keyboard.Key> keyList = mLetterKeyboard.getKeys();
         for (Keyboard.Key key : keyList) {
             if (key.label != null && isLetter(key.label.toString())) {

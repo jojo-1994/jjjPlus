@@ -65,7 +65,8 @@ class WebViewActivity : AppCompatActivity() {
                 }
             }
         }
-        webView.loadUrl("https://www.baidu.com/")
+        webView.loadUrl("http://jsj.jasja.cn/mobile/helpCenter/mLaw.html")
+//        webView.loadUrl("https://www.baidu.com/")
     }
 
     fun hideProgress() {
