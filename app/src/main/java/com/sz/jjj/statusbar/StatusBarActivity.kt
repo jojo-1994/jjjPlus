@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 import android.view.WindowManager
 import com.sz.jjj.R
 import com.sz.jjj.util.ScreenUtils
@@ -25,11 +24,11 @@ class StatusBarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.status_bar_activity)
 
-        hideNavigationBar()
-        var content = getWindow().getDecorView();
-        content.setOnSystemUiVisibilityChangeListener() {
-            hideNavigationBar()
-        }
+        //
+//        var content = getWindow().getDecorView();
+//        content.setOnSystemUiVisibilityChangeListener() {
+//            hideNavigationBar()
+//        }
 
         var screenWidth = ScreenUtils.getScreenWidth(this).toString()
         var screenHeight = ScreenUtils.getScreenHeight(this).toString()
@@ -56,19 +55,12 @@ class StatusBarActivity : AppCompatActivity() {
         })
 
         lightMode.setOnClickListener(View.OnClickListener {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                val decorView = window.decorView
-                val uiOptions = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                decorView.systemUiVisibility = uiOptions
-//                window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
-//                        View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-            }
-//            StatusBarUtil.StatusBarDarkMode(this, 2)
+            Eyes.setStatusBarLightMode(this, Color.WHITE)
         })
     }
 
     /**
-     * 隐藏虚拟按键
+     * 隐藏虚拟按键并全屏
      */
     protected fun hideNavigationBar() {
         if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
@@ -80,7 +72,7 @@ class StatusBarActivity : AppCompatActivity() {
                     View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
                     View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
                     View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
-//                    View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or // 亮色主题
+                    View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or // 亮色主题
 //                    View.SYSTEM_UI_FLAG_FULLSCREEN or // 是否全屏
                     View.SYSTEM_UI_FLAG_IMMERSIVE
 

@@ -6,6 +6,7 @@ apply plugin: 'kotlin-android-extensions' // 启动扩展支持直接使用id
 android {
     compileSdkVersion rootProject.ext.versions.compileSdkVersion
     buildToolsVersion rootProject.ext.versions.buildToolsVersion
+
     defaultConfig {
         applicationId "com.sz.jjj"
         minSdkVersion rootProject.ext.versions.minSdkVersion
@@ -65,6 +66,7 @@ dependencies {
     compile 'com.google.dagger:dagger-android-support:2.14.1'
     // if you use the support libraries
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.14.1'
+    compile 'com.google.code.gson:gson:2.8.2'
 }
 
 repositories {

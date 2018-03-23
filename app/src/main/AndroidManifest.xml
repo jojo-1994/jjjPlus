@@ -47,6 +47,7 @@
     <activity android:name=".lockscreen.activity.LockScreenActivity"/>
     <activity android:name=".ble.activity.BlueToothActivity"/>
     <activity android:name=".inputmanager.activity.InputManagerActivity"/>
+    <activity android:name=".gson.GsonActivity"/>
 
     <service
         android:name="com.sz.jjj.access.service.NotificationMonitorService"

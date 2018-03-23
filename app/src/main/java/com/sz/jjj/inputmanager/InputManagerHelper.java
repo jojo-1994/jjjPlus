@@ -26,7 +26,8 @@ public class InputManagerHelper implements ViewTreeObserver.OnGlobalLayoutListen
     private Activity activity;
     private int lastKeyBoardHeight;
     private int offset;
-    private View viewGroup, lastVisibleView;
+    private ViewGroup viewGroup;
+    private View lastVisibleView;
 
     private InputManagerHelper(Activity activity) {
         this.activity = activity;
@@ -78,6 +79,7 @@ public class InputManagerHelper implements ViewTreeObserver.OnGlobalLayoutListen
 
     /**
      * 判断根布局是否是RecyclerView或ScrollView
+     *
      * @return
      */
     private boolean isViewGroup() {
@@ -117,10 +119,12 @@ public class InputManagerHelper implements ViewTreeObserver.OnGlobalLayoutListen
 
                             if (reSizeLayoutHeight > 0) {
                                 startOffSetAnim(0, reSizeLayoutHeight, keyboardListenLayout);
+//                                TransitionManager.beginDelayedTransition(viewGroup);
 //                                keyboardListenLayout.setPadding(0, -reSizeLayoutHeight, 0, 0);
                             }
                         } else {
                             startOffSetAnim(Math.abs(keyboardListenLayout.getPaddingTop()), 0, keyboardListenLayout);
+//                            TransitionManager.beginDelayedTransition(viewGroup);
 //                            keyboardListenLayout.setPadding(0, 0, 0, 0);
                         }
                     }
@@ -129,7 +133,7 @@ public class InputManagerHelper implements ViewTreeObserver.OnGlobalLayoutListen
         });
     }
 
-    private void bindLayout(final View viewGroup) {
+    private void bindLayout(final ViewGroup viewGroup) {
         if (lastVisibleView == null) {
             lastVisibleView = activity.getCurrentFocus();
         }
@@ -164,6 +168,7 @@ public class InputManagerHelper implements ViewTreeObserver.OnGlobalLayoutListen
             reSizeLayoutHeight += offset;
             if (reSizeLayoutHeight > 0) {
                 startOffSetAnim(0, reSizeLayoutHeight, viewGroup);
+//                TransitionManager.beginDelayedTransition(viewGroup);
 //                viewGroup.setPadding(0, -reSizeLayoutHeight, 0, 0);
             }
         }

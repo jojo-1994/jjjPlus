@@ -8,6 +8,7 @@ import com.sz.jjj.access.ListernNotificationActivity
 import com.sz.jjj.anim.activity.AnimActivity
 import com.sz.jjj.ble.activity.BlueToothActivity
 import com.sz.jjj.database.DataBaseActivity
+import com.sz.jjj.gson.GsonActivity
 import com.sz.jjj.inputmanager.activity.InputManagerActivity
 import com.sz.jjj.lockscreen.activity.LockScreenStartActivity
 import com.sz.jjj.recyclerview.RecyclerViewUtils
@@ -31,7 +32,8 @@ class MainActivity : AppCompatActivity() {
             "APK的更新" to UpdateApkActivity::class.java,
             "锁屏设置" to LockScreenStartActivity::class.java,
             "蓝牙" to BlueToothActivity::class.java,
-            "软键盘弹出" to InputManagerActivity::class.java
+            "软键盘弹出" to InputManagerActivity::class.java,
+            "gson" to GsonActivity::class.java
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

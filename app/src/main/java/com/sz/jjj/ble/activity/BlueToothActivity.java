@@ -31,10 +31,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.sz.jjj.R;
 import com.sz.jjj.ble.adapter.BLTAdapter;
 import com.sz.jjj.ble.utils.CRC16;
+import com.sz.jjj.gson.ModifierSample;
 
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
