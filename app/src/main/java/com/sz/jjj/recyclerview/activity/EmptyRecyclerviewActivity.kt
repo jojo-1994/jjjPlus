@@ -30,5 +30,6 @@ class EmptyRecyclerviewActivity : AppCompatActivity() {
         btn_delete.setOnClickListener(View.OnClickListener {
             homeAdapter.deleteData()
         })
+
     }
 }

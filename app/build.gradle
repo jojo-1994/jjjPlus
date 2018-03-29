@@ -67,6 +67,7 @@ dependencies {
     // if you use the support libraries
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.14.1'
     compile 'com.google.code.gson:gson:2.8.2'
+    compile "io.reactivex.rxjava2:rxjava:2.1.11"
 }
 
 repositories {

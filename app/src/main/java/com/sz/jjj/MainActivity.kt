@@ -12,7 +12,8 @@ import com.sz.jjj.gson.GsonActivity
 import com.sz.jjj.inputmanager.activity.InputManagerActivity
 import com.sz.jjj.lockscreen.activity.LockScreenStartActivity
 import com.sz.jjj.recyclerview.RecyclerViewUtils
-import com.sz.jjj.recyclerview.activity.EmptyRecyclerviewActivity
+import com.sz.jjj.recyclerview.activity.RecyclerViewActivity
+import com.sz.jjj.rxjava.RxjavaActivity
 import com.sz.jjj.statusbar.StatusBarActivity
 import com.sz.jjj.updateapk.UpdateApkActivity
 import com.sz.jjj.view.activity.CustomViewActivity
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     private val map = mapOf<String, Class<*>>(
             "动画" to AnimActivity::class.java,
-            "Recyclerview" to EmptyRecyclerviewActivity::class.java,
+            "Recyclerview" to RecyclerViewActivity::class.java,
             "控件" to CustomViewActivity::class.java,
             "状态栏" to StatusBarActivity::class.java,
             "辅助服务" to ListernNotificationActivity::class.java,
@@ -33,7 +34,8 @@ class MainActivity : AppCompatActivity() {
             "锁屏设置" to LockScreenStartActivity::class.java,
             "蓝牙" to BlueToothActivity::class.java,
             "软键盘弹出" to InputManagerActivity::class.java,
-            "gson" to GsonActivity::class.java
+            "gson" to GsonActivity::class.java,
+            "rxjava" to RxjavaActivity::class.java
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

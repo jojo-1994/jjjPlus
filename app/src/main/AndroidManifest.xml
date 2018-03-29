@@ -48,6 +48,9 @@
     <activity android:name=".ble.activity.BlueToothActivity"/>
     <activity android:name=".inputmanager.activity.InputManagerActivity"/>
     <activity android:name=".gson.GsonActivity"/>
+    <activity android:name=".recyclerview.activity.RecyclerViewActivity"/>
+    <activity android:name=".recyclerview.activity.CommonRecyclerViewActivity"/>
+    <activity android:name=".recyclerview.activity.MultiItemRecyclerViewActivity"/>
 
     <service
         android:name="com.sz.jjj.access.service.NotificationMonitorService"
