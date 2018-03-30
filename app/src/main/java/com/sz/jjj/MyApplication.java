@@ -1,8 +1,11 @@
 package com.sz.jjj;
 
+import android.app.ActivityManager;
 import android.app.Application;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Point;
+import android.util.Log;
 import android.view.WindowManager;
 
 import com.sz.jjj.dagger.MyScope;
@@ -26,7 +29,28 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        resetDensity();
+        Log.e("Application", "onCreate: process name -->" + getProcessName());
+        Log.e("Application", "onCreate: package name -->" + getPackageName());
+        String processNameString = getProcessName();
+        if (getPackageName().equals(processNameString)) {
+            resetDensity();
+        }
+    }
+
+    /**
+     * @return 获取进程名
+     */
+    public String getProcessName() {
+        int pid = android.os.Process.myPid();//获取进程pid
+        String processName = "";
+        ActivityManager am = (ActivityManager) this.getSystemService(Context.ACTIVITY_SERVICE);//获取系统的ActivityManager服务
+        for (ActivityManager.RunningAppProcessInfo appProcess : am.getRunningAppProcesses()) {
+            if (appProcess.pid == pid) {
+                processName = appProcess.processName;
+                break;
+            }
+        }
+        return processName;
     }
 
     @Override

@@ -10,6 +10,7 @@ import com.sz.jjj.ble.activity.BlueToothActivity
 import com.sz.jjj.database.DataBaseActivity
 import com.sz.jjj.gson.GsonActivity
 import com.sz.jjj.inputmanager.activity.InputManagerActivity
+import com.sz.jjj.ipc.IPCActivity
 import com.sz.jjj.lockscreen.activity.LockScreenStartActivity
 import com.sz.jjj.recyclerview.RecyclerViewUtils
 import com.sz.jjj.recyclerview.activity.RecyclerViewActivity
@@ -35,7 +36,8 @@ class MainActivity : AppCompatActivity() {
             "蓝牙" to BlueToothActivity::class.java,
             "软键盘弹出" to InputManagerActivity::class.java,
             "gson" to GsonActivity::class.java,
-            "rxjava" to RxjavaActivity::class.java
+            "rxjava" to RxjavaActivity::class.java,
+            "进程" to IPCActivity::class.java
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
