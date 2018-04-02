@@ -6,12 +6,15 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.sz.jjj.access.ListernNotificationActivity
 import com.sz.jjj.anim.activity.AnimActivity
+import com.sz.jjj.annotation.AnnotationActivity
 import com.sz.jjj.ble.activity.BlueToothActivity
 import com.sz.jjj.database.DataBaseActivity
 import com.sz.jjj.gson.GsonActivity
 import com.sz.jjj.inputmanager.activity.InputManagerActivity
 import com.sz.jjj.ipc.IPCActivity
+import com.sz.jjj.launchmode.LaunchStardedActivity
 import com.sz.jjj.lockscreen.activity.LockScreenStartActivity
+import com.sz.jjj.pic.PicLoadImageActivity
 import com.sz.jjj.recyclerview.RecyclerViewUtils
 import com.sz.jjj.recyclerview.activity.RecyclerViewActivity
 import com.sz.jjj.rxjava.RxjavaActivity
@@ -37,7 +40,10 @@ class MainActivity : AppCompatActivity() {
             "软键盘弹出" to InputManagerActivity::class.java,
             "gson" to GsonActivity::class.java,
             "rxjava" to RxjavaActivity::class.java,
-            "进程" to IPCActivity::class.java
+            "进程" to IPCActivity::class.java,
+            "启动模式" to LaunchStardedActivity::class.java,
+            "大图下载" to PicLoadImageActivity::class.java,
+            "注解" to AnnotationActivity::class.java
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+  <TextView
+      android:id="@+id/textview"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="@dimen/dp_10"
+      android:text="AnnotationActivity2"
+      />
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="@dimen/dp_10"
+      android:text="通知编译器注解：\n@Override\n@SuppressWarning\n@SafeVarargs\n@Deprecated\n@FunctionInterface
+\n\n用于修饰注解的注解：\n@Documented\n@Retention\n@Target\n@Inherited "
+      />
+</LinearLayout>

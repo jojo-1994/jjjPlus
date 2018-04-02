@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.main_item_view.view.*
  */
 class EmptyRecyclerviewAdapter(var context: Context) : RecyclerView.Adapter<EmptyRecyclerviewAdapter.ViewHolder>() {
 
+
     val mData = ArrayList<String>();
 
     fun addData() {
@@ -37,11 +38,11 @@ class EmptyRecyclerviewAdapter(var context: Context) : RecyclerView.Adapter<Empt
         return mData.size
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.main_item_view, parent, false))
     }
 
-    override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder!!.mButton.setText(mData.get(position))
     }
 
