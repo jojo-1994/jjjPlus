@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Point;
+import android.support.multidex.MultiDex;
 import android.util.Log;
 import android.view.WindowManager;
 
@@ -27,6 +28,12 @@ public class MyApplication extends Application {
     public final static float DESIGN_WIDTH = 750; //绘制页面时参照的设计图宽度
 
     @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(base);
+    }
+
+    @Override
     public void onCreate() {
         super.onCreate();
         Log.e("Application", "onCreate: process name -->" + getProcessName());
@@ -36,6 +43,7 @@ public class MyApplication extends Application {
             resetDensity();
         }
     }
+
 
     /**
      * @return 获取进程名
@@ -62,7 +70,6 @@ public class MyApplication extends Application {
     public void resetDensity() {
         Point size = new Point();
         ((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay().getSize(size);
-
         getResources().getDisplayMetrics().xdpi = size.x / DESIGN_WIDTH * 72f;
     }
 

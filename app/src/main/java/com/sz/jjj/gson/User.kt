@@ -11,7 +11,7 @@ import com.google.gson.annotations.Until
  */
 data class User(
         @Expose(serialize = false, deserialize = true)
-        @SerializedName("userName", alternate = arrayOf("mName"))
+        @SerializedName("userName", alternate = arrayOf("mName","1"))
         val name: String = "",
         @Expose(serialize = true, deserialize = true)
         val age: Int) {

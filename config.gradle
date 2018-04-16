@@ -11,22 +11,25 @@ ext {
     ]
 
     dependencies = [
-            "support-v4"              : "com.android.support:support-v4:${supportVersion}",
-            "appcompat-v7"            : "com.android.support:appcompat-v7:${supportVersion}",
-            "recyclerview-v7"         : "com.android.support:recyclerview-v7:${supportVersion}",
-            "design"                  : "com.android.support:design:${supportVersion}",
-            "RecyclerViewHelper"      : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22",  //RecyclerAdapter https://github.com/CymChad/BaseRecyclerViewAdapterHelper
-            "butterknife7"            : "com.jakewharton:butterknife:7.0.1",   //注解 https://github.com/JakeWharton/butterknife
-            "butterknife8"            : "com.jakewharton:butterknife:8.6.0",   //注解 https://github.com/JakeWharton/butterknife
-            "butterknife-compiler"    : "com.jakewharton:butterknife-compiler:8.6.0",   //注解 https://github.com/JakeWharton/butterknife
-            "retrofit2"               : "com.squareup.retrofit2:retrofit:2.3.0",  //retrofit https://github.com/square/retrofit
-            "okhttp"                  : "com.squareup.okhttp3:okhttp:3.8.1",  //retrofit https://github.com/square/retrofit
-            "gson"                    : "com.google.code.gson:gson:2.8.1",  //gson https://github.com/google/gson
-            "converter-gson"          : "com.squareup.retrofit2:converter-gson:2.3.0",  //gson convertor with retrofit http://mvnrepository.com/artifact/com.squareup.retrofit2/converter-gson/2.3.0
-            "adapter-rxjava"          : "com.squareup.retrofit2:adapter-rxjava:2.3.0",  //adapter rxjava with retrofit http://mvnrepository.com/artifact/com.squareup.retrofit2/adapter-rxjava/2.3.0
-            "rxjava"                  : "io.reactivex:rxjava:1.3.0",  //rxjava http://mvnrepository.com/artifact/io.reactivex.rxjava2/rxjava/2.1.1
-            "rxandroid"               : "io.reactivex:rxandroid:1.2.1",  //rxandroid http://mvnrepository.com/artifact/io.reactivex/rxandroid/1.2.1
-            "material-dialogs"        : "com.afollestad.material-dialogs:core:0.9.0.2",  //material-dialogs https://github.com/afollestad/material-dialogs
-            "eventbus"                : "org.greenrobot:eventbus:3.0.0",  //material-dialogs https://github.com/afollestad/material-dialogs
+            "support-v4"          : "com.android.support:support-v4:${supportVersion}",
+            "appcompat-v7"        : "com.android.support:appcompat-v7:${supportVersion}",
+            "recyclerview-v7"     : "com.android.support:recyclerview-v7:${supportVersion}",
+            "design"              : "com.android.support:design:${supportVersion}",
+            "RecyclerViewHelper"  : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.38",  //RecyclerAdapter https://github.com/CymChad/BaseRecyclerViewAdapterHelper
+            "butterknife"         : "com.jakewharton:butterknife:8.8.1",   //注解 https://github.com/JakeWharton/butterknife
+            "butterknife-compiler": "com.jakewharton:butterknife-compiler:8.8.1",   //注解 https://github.com/JakeWharton/butterknife
+            "retrofit2"           : "com.squareup.retrofit2:retrofit:2.3.0",  //retrofit https://github.com/square/retrofit
+            "okhttp"              : "com.squareup.okhttp3:okhttp:3.8.1",  //retrofit https://github.com/square/retrofit
+            "gson"                : "com.google.code.gson:gson:2.8.2",  //gson https://github.com/google/gson
+            "converter-gson"      : "com.squareup.retrofit2:converter-gson:2.4.0",  //gson convertor with retrofit http://mvnrepository.com/artifact/com.squareup.retrofit2/converter-gson
+            "adapter-rxjava"      : "com.squareup.retrofit2:adapter-rxjava:2.4.0",  //adapter rxjava with retrofit http://mvnrepository.com/artifact/com.squareup.retrofit2/adapter-rxjava
+            "rxjava"              : "io.reactivex.rxjava2:rxjava:2.1.12",  //rxjava http://mvnrepository.com/artifact/io.reactivex.rxjava2/rxjava
+            "rxandroid"           : "io.reactivex:rxandroid:1.2.1",  //rxandroid http://mvnrepository.com/artifact/io.reactivex/rxandroid
+            "material-dialogs"    : "com.afollestad.material-dialogs:core:0.9.6.0",  //material-dialogs https://github.com/afollestad/material-dialogs
+            "eventbus"            : "org.greenrobot:eventbus:3.1.1",  //eventbus https://github.com/greenrobot/EventBus
+            "multidex"            : "com.android.support:multidex:1.0.1",  //
+            "volley"              : "com.mcxiaoke.volley:library:1.0.19",  //volley https://github.com/mcxiaoke/android-volley
+            "glide"               : "com.github.bumptech.glide:glide:4.7.1",  //glide https://github.com/bumptech/glide
+            "glide-compiler"      : "com.github.bumptech.glide:compiler:4.7.1",  //glide-compiler https://github.com/bumptech/glide
     ]
 }

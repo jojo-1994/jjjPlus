@@ -17,7 +17,8 @@ class CustomViewActivity : AppCompatActivity() {
             "WebView进度条" to WebViewActivity::class.java,
             "自定义软键盘" to SoftKeyboardActivity::class.java,
             "SlidingTabLayout" to SlidingTabActivity::class.java,
-            "五星点评" to FiveStarsViewActivity::class.java
+            "五星点评" to FiveStarsViewActivity::class.java,
+            "半圆" to SemicircleActivity::class.java
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

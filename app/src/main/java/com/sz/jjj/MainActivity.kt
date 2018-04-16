@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.sz.jjj.access.ListernNotificationActivity
+import com.sz.jjj.adapter.AdapterActivity
 import com.sz.jjj.anim.activity.AnimActivity
 import com.sz.jjj.annotation.AnnotationActivity
 import com.sz.jjj.ble.activity.BlueToothActivity
@@ -17,6 +18,7 @@ import com.sz.jjj.lockscreen.activity.LockScreenStartActivity
 import com.sz.jjj.pic.PicLoadImageActivity
 import com.sz.jjj.recyclerview.RecyclerViewUtils
 import com.sz.jjj.recyclerview.activity.RecyclerViewActivity
+import com.sz.jjj.reflection.ReflectionPerformanceActivity
 import com.sz.jjj.rxjava.RxjavaActivity
 import com.sz.jjj.statusbar.StatusBarActivity
 import com.sz.jjj.updateapk.UpdateApkActivity
@@ -43,7 +45,9 @@ class MainActivity : AppCompatActivity() {
             "进程" to IPCActivity::class.java,
             "启动模式" to LaunchStardedActivity::class.java,
             "大图下载" to PicLoadImageActivity::class.java,
-            "注解" to AnnotationActivity::class.java
+            "注解" to AnnotationActivity::class.java,
+            "反射" to ReflectionPerformanceActivity::class.java,
+            "屏幕适配" to AdapterActivity::class.java
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -5,7 +5,6 @@ apply plugin: 'kotlin-android-extensions' // 启动扩展支持直接使用id
 
 android {
     compileSdkVersion rootProject.ext.versions.compileSdkVersion
-    buildToolsVersion rootProject.ext.versions.buildToolsVersion
 
     defaultConfig {
         applicationId "com.sz.jjj"
@@ -23,9 +22,10 @@ android {
         }
     }
 
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
+    lintOptions{
+        abortOnError false
     }
+
     configurations.all {
         resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.2'
     }
@@ -38,40 +38,38 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile rootProject.ext.dependencies["appcompat-v7"]
-    compile rootProject.ext.dependencies["recyclerview-v7"]
-    compile rootProject.ext.dependencies["RecyclerViewHelper"]
-    compile rootProject.ext.dependencies["material-dialogs"]
-    compile rootProject.ext.dependencies["okhttp"]
-    compile rootProject.ext.dependencies["eventbus"]
-    compile rootProject.ext.dependencies["design"]
-    // Kotlin 标准库
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    // 针对jdk8
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    // Kotlin 反射
-    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
-    implementation project(':baselibrary')
-    compile 'com.google.guava:guava:24.0-android'
-    // butterknife
-    compile rootProject.ext.dependencies["butterknife8"]
+    testImplementation 'junit:junit:4.12'
+    implementation rootProject.ext.dependencies["appcompat-v7"]
+    implementation rootProject.ext.dependencies["recyclerview-v7"]
+    implementation rootProject.ext.dependencies["RecyclerViewHelper"]
+    implementation rootProject.ext.dependencies["material-dialogs"]
+    implementation rootProject.ext.dependencies["okhttp"]
+    implementation rootProject.ext.dependencies["eventbus"]
+    implementation rootProject.ext.dependencies["design"]
+    implementation rootProject.ext.dependencies["multidex"]
+    implementation rootProject.ext.dependencies["rxjava"]
+    implementation rootProject.ext.dependencies["gson"]
+    implementation rootProject.ext.dependencies["glide"]
+    implementation rootProject.ext.dependencies["volley"]
+    annotationProcessor rootProject.ext.dependencies["glide-compiler"]
+    implementation rootProject.ext.dependencies["butterknife"]
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    implementation project(':baselibrary')
+    // Kotlin https://www.kotlincn.net/docs/reference/using-gradle.html
+    // Kotlin 标准库
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    // 针对jdk8
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    // Kotlin 反射
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    implementation 'com.google.guava:guava:24.0-android'
     // dagger
-    compile 'com.google.dagger:dagger:2.14.1'
+    implementation 'com.google.dagger:dagger:2.14.1'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.14.1'
-    compile 'com.google.dagger:dagger-android:2.14.1'
-    compile 'com.google.dagger:dagger-android-support:2.14.1'
-    // if you use the support libraries
+    implementation 'com.google.dagger:dagger-android:2.14.1'
+    implementation 'com.google.dagger:dagger-android-support:2.14.1'
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.14.1'
-    compile 'com.google.code.gson:gson:2.8.2'
-    compile "io.reactivex.rxjava2:rxjava:2.1.11"
 
-    compile 'com.mcxiaoke.volley:library:1.0.19'
-    implementation 'com.github.bumptech.glide:glide:4.6.1'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
 }
 
 repositories {

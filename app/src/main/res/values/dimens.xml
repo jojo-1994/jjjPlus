@@ -5,4 +5,6 @@
     <dimen name="view_softkeyboard_verticalGap">0px</dimen>
     <dimen name="view_softkeyboard_height">60dp</dimen>
     <dimen name="view_softkeyboard_double_height">120dp</dimen>
+
+    <dimen name="adapter_text_normal">16sp</dimen>
 </resources>

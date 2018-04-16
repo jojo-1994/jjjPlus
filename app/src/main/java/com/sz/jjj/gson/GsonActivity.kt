@@ -39,14 +39,14 @@ class GsonActivity : AppCompatActivity() {
 //        var gson = Gson();
         var gson = GsonBuilder().excludeFieldsWithoutExposeAnnotation().create()
         var userString = gson.toJson(user)
-        Log.e("userString", userString)
+        Log.e("序列化", userString)
 
         // 反序列化
 //        var userJson = "{\"name\":\"leavesC\",\"age\":24}";
 //        var userJson = "{\"userName\":\"leavesC\",\"age\":24}";
-        var userJson = "{\"mName\":\"jjj\",\"age\":25,\"gender\":true}";
+        var userJson = "{\"1\":\"jjj\",\"age\":25,\"gender\":true}";
         var user2 = gson.fromJson(userJson, User::class.java)
-        Log.e("userString", user2.toString())
+        Log.e("反序列化", user2.toString())
 
         // 基于版本
         var gson2 = GsonBuilder().setVersion(2.0).create()

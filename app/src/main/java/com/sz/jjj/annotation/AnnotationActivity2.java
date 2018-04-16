@@ -16,7 +16,6 @@ import butterknife.BindView;
 @ContentView(R.layout.annotation_activity2)
 public class AnnotationActivity2 extends AnnotationBaseActivity {
 
-
     @BindView(R.id.textview)
     TextView textview;
 
