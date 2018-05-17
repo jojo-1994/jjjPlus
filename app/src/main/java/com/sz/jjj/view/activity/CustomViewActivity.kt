@@ -18,7 +18,8 @@ class CustomViewActivity : AppCompatActivity() {
             "自定义软键盘" to SoftKeyboardActivity::class.java,
             "SlidingTabLayout" to SlidingTabActivity::class.java,
             "五星点评" to FiveStarsViewActivity::class.java,
-            "半圆" to SemicircleActivity::class.java
+            "半圆" to SemicircleActivity::class.java,
+            "自定义TabLayout" to CustomTabLayoutActivity::class.java
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
