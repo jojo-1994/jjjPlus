@@ -21,8 +21,13 @@
                 android:id="@+id/tv_subscribe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="点我" />
+                android:text="网络请求" />
 
+            <Button
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="计时" />
         </LinearLayout>
 
         <LinearLayout

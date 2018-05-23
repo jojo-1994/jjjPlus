@@ -22,7 +22,7 @@ ext {
             "okhttp"              : "com.squareup.okhttp3:okhttp:3.8.1",  //retrofit https://github.com/square/retrofit
             "gson"                : "com.google.code.gson:gson:2.8.2",  //gson https://github.com/google/gson
             "converter-gson"      : "com.squareup.retrofit2:converter-gson:2.4.0",  //gson convertor with retrofit http://mvnrepository.com/artifact/com.squareup.retrofit2/converter-gson
-            "adapter-rxjava"      : "com.squareup.retrofit2:adapter-rxjava:2.4.0",  //adapter rxjava with retrofit http://mvnrepository.com/artifact/com.squareup.retrofit2/adapter-rxjava
+            "adapter-rxjava"      : "com.squareup.retrofit2:adapter-rxjava2:2.4.0",  //adapter rxjava with retrofit http://mvnrepository.com/artifact/com.squareup.retrofit2/adapter-rxjava
             "rxjava"              : "io.reactivex.rxjava2:rxjava:2.1.12",  //rxjava http://mvnrepository.com/artifact/io.reactivex.rxjava2/rxjava
             "rxandroid"           : "io.reactivex:rxandroid:1.2.1",  //rxandroid http://mvnrepository.com/artifact/io.reactivex/rxandroid
             "material-dialogs"    : "com.afollestad.material-dialogs:core:0.9.6.0",  //material-dialogs https://github.com/afollestad/material-dialogs

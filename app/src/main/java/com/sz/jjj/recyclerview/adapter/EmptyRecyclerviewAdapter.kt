@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import com.sz.jjj.R
-import com.sz.jjj.baselibrary.utils.ToastUtils
+import com.sz.jjj.baselibrary.util.ToastUtil
 import kotlinx.android.synthetic.main.main_item_view.view.*
 
 
@@ -27,7 +27,7 @@ class EmptyRecyclerviewAdapter(var context: Context) : RecyclerView.Adapter<Empt
 
     fun deleteData() {
         if (mData.size == 0) {
-            ToastUtils.show(context, "没有数据了")
+            ToastUtil.show(context, "没有数据了")
             return
         }
         mData.removeAt(mData.size - 1)

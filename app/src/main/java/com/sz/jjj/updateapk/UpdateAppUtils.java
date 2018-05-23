@@ -9,8 +9,8 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.sz.jjj.baselibrary.permissions.PermissionsManager;
 import com.sz.jjj.baselibrary.permissions.PermissionsResultAction;
-import com.sz.jjj.baselibrary.utils.AppUtils;
-import com.sz.jjj.baselibrary.utils.ToastUtils;
+import com.sz.jjj.baselibrary.util.AppUtil;
+import com.sz.jjj.baselibrary.util.ToastUtil;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -58,7 +58,7 @@ public class UpdateAppUtils {
                 }
 
                 public void onDenied(String permission) {
-                    ToastUtils.show(activity, "授权失败");
+                    ToastUtil.show(activity, "授权失败");
                 }
             });
 
@@ -117,7 +117,7 @@ public class UpdateAppUtils {
     }
 
     public static boolean compareVersion(Context context, int verCodeFromServer) {
-        int verCodeFromApp = AppUtils.getVersionCode(context);
+        int verCodeFromApp = AppUtil.getVersionCode(context);
         return verCodeFromApp < verCodeFromServer ? true : false;
     }
 }
