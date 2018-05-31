@@ -27,7 +27,7 @@ import okio.Buffer;
 
 public class BasicParamsInterceptor implements Interceptor {
 
-    private Map<String, String> queryParamsMap = new HashMap<>();
+    private Map<String, String> comParamsMap = new HashMap<>();
     private Map<String, String> postParamsMap = new HashMap<>();
     private Map<String, String> headerParamsMap = new HashMap<>();
     private List<String> headerLinesList = new ArrayList<>();
@@ -60,8 +60,8 @@ public class BasicParamsInterceptor implements Interceptor {
         // process header params end
 
         // process queryParams inject whatever it's GET or POST
-        if (queryParamsMap.size() > 0) {
-            request = injectParamsIntoUrl(request.url().newBuilder(), requestBuilder, queryParamsMap);
+        if (comParamsMap.size() > 0) {
+            request = injectParamsIntoUrl(request.url().newBuilder(), requestBuilder, comParamsMap);
         }
 
         // process post body inject
@@ -180,13 +180,13 @@ public class BasicParamsInterceptor implements Interceptor {
             return this;
         }
 
-        public Builder addQueryParam(String key, String value) {
-            interceptor.queryParamsMap.put(key, value);
+        public Builder addCommonParam(String key, String value) {
+            interceptor.comParamsMap.put(key, value);
             return this;
         }
 
-        public Builder addQueryParamsMap(Map<String, String> queryParamsMap) {
-            interceptor.queryParamsMap.putAll(queryParamsMap);
+        public Builder addCommonParamsMap(Map<String, String> queryParamsMap) {
+            interceptor.comParamsMap.putAll(queryParamsMap);
             return this;
         }
 

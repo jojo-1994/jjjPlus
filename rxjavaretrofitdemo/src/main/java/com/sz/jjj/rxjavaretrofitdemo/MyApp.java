@@ -19,7 +19,7 @@ public class MyApp extends Application{
 
         TxConfiguration configuration = new TxConfiguration.Builder(this)
                 .baseUrl("https://api.douban.com/v2/movie/")
-                .queryParam("token", "000")
+                .commonParam("token", "000")
                 .postParam("post", "111")
                 .headerParam("header", "222")
                 .headerLine("333:444")

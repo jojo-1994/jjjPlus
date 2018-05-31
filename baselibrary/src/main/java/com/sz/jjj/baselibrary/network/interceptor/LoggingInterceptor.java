@@ -21,7 +21,7 @@ import okio.Buffer;
  * @author jjj
  * @date 2018/5/17
  *
- * @description:
+ * @description: 日志打印拦截器
  */
 
 public class LoggingInterceptor implements Interceptor {

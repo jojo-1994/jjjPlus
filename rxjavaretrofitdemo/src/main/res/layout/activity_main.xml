@@ -1,49 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:orientation="vertical"
+    tools:context="com.sz.jjj.rxjavaretrofitdemo.MainActivity"
+    >
 
-    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    <Button
+        android:id="@+id/tv_get1"
+        android:onClick="get1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="get请求--简化前"
+        />
+
+    <Button
+        android:id="@+id/tv_get2"
+        android:onClick="get2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="get请求--简化后"
+        />
+    <Button
+        android:id="@+id/tv_get3"
+        android:onClick="getBySyn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="get方法——同步"
+        />
+
+    <TextView
+        android:id="@+id/tv_message"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="20dp"
-        tools:context="com.sz.jjj.rxjavaretrofitdemo.MainActivity">
+        android:layout_height="wrap_content"
+        />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/tv_subscribe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="网络请求" />
-
-            <Button
-                android:id="@+id/tv_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="计时" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingLeft="15dp"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tv_message"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>

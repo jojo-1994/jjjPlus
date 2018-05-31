@@ -26,7 +26,7 @@ public class TxConfiguration {
     final Class loginClass;
 
     private String baseUrl;
-    final Map<String, String> queryParamsMap;
+    final Map<String, String> comParamsMap;
     final Map<String, String> postParamsMap;
     final Map<String, String> headerParamsMap;
     final List<String> headerLinesList;
@@ -41,7 +41,7 @@ public class TxConfiguration {
     public TxConfiguration(final Builder builder) {
         this.context = builder.context;
         this.baseUrl = builder.baseUrl;
-        this.queryParamsMap = builder.queryParamsMap;
+        this.comParamsMap = builder.comParamsMap;
         this.postParamsMap = builder.postParamsMap;
         this.headerParamsMap = builder.headerParamsMap;
         this.headerLinesList = builder.headerLinesList;
@@ -66,8 +66,8 @@ public class TxConfiguration {
         this.baseUrl = baseUrl;
     }
 
-    public Map<String, String> getQueryParamsMap() {
-        return queryParamsMap;
+    public Map<String, String> getCommonParamsMap() {
+        return comParamsMap;
     }
 
     public Map<String, String> getPostParamsMap() {
@@ -96,7 +96,7 @@ public class TxConfiguration {
 
     public static class Builder {
         private String baseUrl;
-        private Map<String, String> queryParamsMap;
+        private Map<String, String> comParamsMap;
         private Map<String, String> postParamsMap;
         private Map<String, String> headerParamsMap;
         private List<String> headerLinesList;
@@ -114,7 +114,7 @@ public class TxConfiguration {
 
         public Builder(Context context) {
             this.context = context;
-            queryParamsMap = new HashMap<>();
+            comParamsMap = new HashMap<>();
             postParamsMap = new HashMap<>();
             headerParamsMap = new HashMap<>();
             headerLinesList = new ArrayList<>();
@@ -125,13 +125,13 @@ public class TxConfiguration {
             return this;
         }
 
-        public Builder queryParamMap(Map<String, String> params) {
-            this.queryParamsMap.putAll(params);
+        public Builder commonParamMap(Map<String, String> params) {
+            this.comParamsMap.putAll(params);
             return this;
         }
 
-        public Builder queryParam(String key, String value){
-            this.queryParamsMap.put(key, value);
+        public Builder commonParam(String key, String value){
+            this.comParamsMap.put(key, value);
             return this;
         }
 

@@ -1,7 +1,6 @@
 package com.sz.jjj.baselibrary.network.common;
 
 import android.content.Context;
-import android.text.TextUtils;
 
 import com.google.gson.JsonParseException;
 import com.sz.jjj.baselibrary.R;
@@ -80,7 +79,7 @@ public abstract class DefaultObserver<T> implements Observer<T>, ResponseCallbac
         else {
             errMsg = context.getString(R.string.bad_network);
         }
-        if(showToast){
+        if (showToast) {
             ToastUtil.show(context, errMsg);
         }
         onFailure(new TxExecption(errMsg));

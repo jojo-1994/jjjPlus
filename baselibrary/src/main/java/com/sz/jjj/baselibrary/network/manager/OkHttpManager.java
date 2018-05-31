@@ -40,11 +40,12 @@ public class OkHttpManager {
      */
     public OkHttpManager() {
         BasicParamsInterceptor paramsInterceptor = new BasicParamsInterceptor.Builder()
-                .addQueryParamsMap(TxUtils.getInstance().getConfiguration().getQueryParamsMap())
+                .addCommonParamsMap(TxUtils.getInstance().getConfiguration().getCommonParamsMap())
                 .addPostParamsMap(TxUtils.getInstance().getConfiguration().getPostParamsMap())
                 .addHeaderParamsMap(TxUtils.getInstance().getConfiguration().getHeaderParamsMap())
                 .addHeaderLinesList(TxUtils.getInstance().getConfiguration().getHeaderLinesList())
                 .build();
+
         mBuilder = new OkHttpClient.Builder()
                 .connectTimeout(TxConstants.TIMEOUT, TimeUnit.SECONDS)
                 .readTimeout(TxConstants.TIMEOUT, TimeUnit.SECONDS)
@@ -52,6 +53,7 @@ public class OkHttpManager {
                 .addInterceptor(new LoggingInterceptor("", true))
                 .addInterceptor(paramsInterceptor)
                 .addInterceptor(new TokenInterceptor());
+//                .cache(new Cache(new File(context.getExternalCacheDir(), "okhttpcache"), 10 * 1024 * 1024)); // 10M缓存
     }
 
     /**
@@ -100,8 +102,9 @@ public class OkHttpManager {
             String requestUrl = String.format("%s/%s?%s", TxUtils.getInstance().getConfiguration().getBaseUrl(), actionUrl, tempParams.toString());
             LogUtil.e("ddddddd" + requestUrl);
             //创建一个请求
-            Request request = addHeaders().url(requestUrl).build();
+            Request request = new Request.Builder().url(requestUrl).build();
             //创建一个Call
+            OkHttpClient client = new OkHttpClient.Builder().readTimeout(5, TimeUnit.SECONDS).build();
             final Call call = mBuilder.build().newCall(request);
             //执行请求
             final Response response = call.execute();

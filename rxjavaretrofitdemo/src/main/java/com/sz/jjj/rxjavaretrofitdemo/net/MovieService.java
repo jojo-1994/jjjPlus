@@ -13,7 +13,7 @@ import retrofit2.http.Query;
  * @description:
  */
 
-public interface ApiService {
+public interface MovieService {
     @GET("top250")
-    Observable<Movie> getTopMovie(@Query("start") int start, @Query("count") int count);
+    Observable<Movie> getTopMovie(@Query("start") int start, @Query("count") int count, @Query("token") String token);
 }

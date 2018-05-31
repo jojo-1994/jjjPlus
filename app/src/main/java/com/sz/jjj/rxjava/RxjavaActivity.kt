@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.sz.jjj.R
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import rx.Observer
 import rx.android.schedulers.AndroidSchedulers
@@ -24,7 +24,7 @@ class RxjavaActivity : AppCompatActivity() {
         var retrofit =  Retrofit.Builder()
                 .baseUrl("http://fy.iciba.com/") // 设置 网络请求 Url
                 .addConverterFactory(GsonConverterFactory.create()) //设置使用Gson解析(记得加入依赖)
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create()) // 支持RxJava
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create()) // 支持RxJava
                 .build();
 
         // b. 创建 网络请求接口 的实例
