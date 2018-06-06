@@ -17,7 +17,7 @@ public class MovieManager extends ServiceManager<MovieService> implements MovieS
         super(activity, t);
     }
 
-    public static MovieManager getInstance(RxBaseActivity activity) {
+    public static MovieManager get(RxBaseActivity activity) {
         return new MovieManager(activity, MovieService.class);
     }
 

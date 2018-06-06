@@ -10,7 +10,6 @@
     >
 
     <Button
-        android:id="@+id/tv_get1"
         android:onClick="get1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,20 +17,23 @@
         />
 
     <Button
-        android:id="@+id/tv_get2"
         android:onClick="get2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="get请求--简化后"
         />
     <Button
-        android:id="@+id/tv_get3"
         android:onClick="getBySyn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="get方法——同步"
         />
-
+    <Button
+        android:onClick="download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="get方法——同步"
+        />
     <TextView
         android:id="@+id/tv_message"
         android:layout_width="match_parent"

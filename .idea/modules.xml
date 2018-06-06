@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/JiangjjPlus.iml" filepath="$PROJECT_DIR$/JiangjjPlus.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/baselibrary/baselibrary.iml" filepath="$PROJECT_DIR$/baselibrary/baselibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bluetooth/bluetooth.iml" filepath="$PROJECT_DIR$/bluetooth/bluetooth.iml" />
       <module fileurl="file://$PROJECT_DIR$/rxjavaretrofitdemo/rxjavaretrofitdemo.iml" filepath="$PROJECT_DIR$/rxjavaretrofitdemo/rxjavaretrofitdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/sweetDialog/sweetDialog.iml" filepath="$PROJECT_DIR$/sweetDialog/sweetDialog.iml" />
     </modules>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">bluetooth</string>
+    <string name="setting_meter_stop">Stop</string>
+    <string name="meter_search">Search</string>
+</resources>
