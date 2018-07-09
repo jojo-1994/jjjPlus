@@ -51,7 +51,7 @@ public class MyApplication extends Application {
     public String getProcessName() {
         int pid = android.os.Process.myPid();//获取进程pid
         String processName = "";
-        ActivityManager am = (ActivityManager) this.getSystemService(Context.ACTIVITY_SERVICE);//获取系统的ActivityManager服务
+        ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);//获取系统的ActivityManager服务
         for (ActivityManager.RunningAppProcessInfo appProcess : am.getRunningAppProcesses()) {
             if (appProcess.pid == pid) {
                 processName = appProcess.processName;

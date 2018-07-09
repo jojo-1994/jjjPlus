@@ -60,6 +60,19 @@
         <activity android:name=".recyclerview.activity.MultiItemRecyclerViewActivity"/>
         <activity android:name=".ipc.IPCActivity"/>
         <activity android:name=".rxjava.RxjavaActivity"/>
+
+        <service
+            android:name=".ipc.messenger.MessengerService"
+            android:process=":remote"/>
+
+        <activity android:name=".ipc.messenger.MessengerActivity"/>
+
+        <activity android:name=".ipc.aidl.BookManagerActivity"/>
+
+        <service
+            android:name=".ipc.aidl.BookManagerService"
+            android:process=":remote"/>
+
         <activity
             android:name=".ipc.IPC1Activity"
             android:process=".remote">

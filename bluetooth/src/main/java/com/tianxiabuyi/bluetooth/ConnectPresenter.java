@@ -226,8 +226,8 @@ public class ConnectPresenter {
         String addrKey = "BLE_PAIRED_METER_ADDR_" + String.valueOf(0);
         String addrKey2 = "BLE_PAIRED_METER_ADDR_" + String.valueOf(1);
 //        addrs.put(addrKey, mMacAddress);
-        addrs.put(addrKey, "C0:26:DF:03:56:17");
         addrs.put(addrKey2, "C0:26:DA:00:2D:81");
+        addrs.put(addrKey, "C0:26:DF:03:56:17");
         mConnection.updatePairedList(addrs, 2);
     }
 
@@ -293,6 +293,7 @@ public class ConnectPresenter {
                 try {
                     if (mTaiDocMeter != null) {
                         mTaiDocMeter.turnOffMeterOrBluetooth(0);
+                        mTaiDocMeter=null;
                     }
                     mConnection.disconnect();
                     mConnection.setLeConnectedListener(null);
@@ -327,7 +328,13 @@ public class ConnectPresenter {
                     Log.e(TAG, ((BloodPressureRecord) abstractRecord).getMapValue() + "---" + ((BloodPressureRecord) abstractRecord).getMeasureTime());
                 }
             }
-            mTaiDocMeter.turnOffMeterOrBluetooth(0);
+            disconnectMeter();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    connectMeter();
+                }
+            }, 1000);
         }
     }
 }

@@ -5,110 +5,128 @@
               android:orientation="vertical"
     >
 
-  <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:lineSpacingMultiplier="1.2"
-      android:padding="@dimen/dp_10"
-      android:text="IPC:进程间通信，指两个进程间进行数据交换的过程.\n
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingMultiplier="1.2"
+        android:padding="@dimen/dp_10"
+        android:text="IPC:进程间通信，指两个进程间进行数据交换的过程.\n
 线程：CPU调度的最小单元，一个进程可以包含多个线程.\n
 使用场景：1、第三方信鸽推送，即时通信;2、一个应用需要向其他应用获取数据.\n"
-      android:textSize="16sp"
-      />
-
-  <Button
-      android:id="@+id/btn_ipc1"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="ipc1"
-      />
-
-  <Button
-      android:id="@+id/btn_ipc2"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="ipc2"
-      />
-
-  <TextView
-      android:id="@+id/tv_static"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:lineSpacingMultiplier="1.2"
-      android:padding="@dimen/dp_10"
-      android:textSize="16sp"
-      />
-
-  <Button
-      android:id="@+id/btn_save"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="存入数据"
-      />
-
-  <TextView
-      android:id="@+id/tv_save"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:padding="@dimen/dp_10"
-      android:textSize="16sp"
-      />
-
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Serializable 方式："
-      />
-
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      >
-
-    <Button
-        android:id="@+id/btn_serialize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/dp_10"
-        android:text="序列化"
         android:textSize="16sp"
         />
 
     <Button
-        android:id="@+id/btn_deserialize"
+        android:id="@+id/btn_ipc1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="反序列化"
+        android:text="ipc1"
+        />
+
+    <Button
+        android:id="@+id/btn_ipc2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ipc2"
         />
 
     <TextView
-        android:id="@+id/tv_deserialize"
+        android:id="@+id/tv_static"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingMultiplier="1.2"
+        android:padding="@dimen/dp_10"
+        android:textSize="16sp"
+        />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="存入数据"
+        />
+
+    <TextView
+        android:id="@+id/tv_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/dp_10"
         android:textSize="16sp"
         />
-  </LinearLayout>
 
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Parcelable 方式："
-      />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Serializable 方式："
+        />
 
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <Button
+            android:id="@+id/btn_serialize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+            android:text="序列化"
+            android:textSize="16sp"
+            />
+
+        <Button
+            android:id="@+id/btn_deserialize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="反序列化"
+            />
+
+        <TextView
+            android:id="@+id/tv_deserialize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+            android:textSize="16sp"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parcelable 方式："
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <Button
+            android:id="@+id/btn_Parcelable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+            android:text="序列化"
+            android:textSize="16sp"
+            />
+    </LinearLayout>
 
     <Button
-      android:id="@+id/btn_Parcelable"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:padding="@dimen/dp_10"
-      android:text="序列化"
-      android:textSize="16sp"
-      />
-  </LinearLayout>
+        android:id="@+id/btn_messenger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_10"
+        android:text="messenger"
+        android:textSize="16sp"
+        />
+
+    <Button
+        android:id="@+id/btn_aidl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_10"
+        android:text="aidl"
+        android:textSize="16sp"
+        />
 
 </LinearLayout>

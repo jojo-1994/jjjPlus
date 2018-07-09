@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sz.jjj.R;
+import com.sz.jjj.ipc.aidl.BookManagerActivity;
+import com.sz.jjj.ipc.messenger.MessengerActivity;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -50,10 +52,11 @@ public class IPCActivity extends AppCompatActivity {
         processData = 2;
         tvStatic.setText("静态变量：" + processData);
         Log.e("IpcActivity", "processData :" + processData);
-        List<String> mList=new ArrayList();
+        List<String> mList = new ArrayList();
     }
 
-    @OnClick({R.id.btn_ipc1, R.id.btn_ipc2, R.id.btn_save, R.id.btn_serialize, R.id.btn_deserialize, R.id.btn_Parcelable})
+    @OnClick({R.id.btn_ipc1, R.id.btn_ipc2, R.id.btn_save, R.id.btn_serialize, R.id.btn_deserialize,
+            R.id.btn_Parcelable, R.id.btn_messenger, R.id.btn_aidl})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_ipc1:
@@ -105,6 +108,14 @@ public class IPCActivity extends AppCompatActivity {
                 IPCUserPar user = new IPCUserPar("0", "jake", "1");
                 startActivity(new Intent(this, IPC2Activity.class).putExtra("user", user));
                 break;
+            case R.id.btn_messenger:
+                // messenger
+                startActivity(new Intent(this, MessengerActivity.class));
+                break;
+            case R.id.btn_aidl:
+                startActivity(new Intent(this, BookManagerActivity.class));
+                break;
+            default:
         }
     }
 

@@ -10,4 +10,5 @@
 
   <color name="view_softkeyboard_normal_color">#ffffff</color>
   <color name="view_softkeyboard_pressed_color">#e8ecf0</color>
+
 </resources>
