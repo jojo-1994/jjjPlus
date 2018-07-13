@@ -111,22 +111,53 @@
             />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <Button
+            android:id="@+id/btn_messenger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+            android:text="messenger"
+            android:textSize="16sp"
+            />
+
+        <Button
+            android:id="@+id/btn_aidl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+            android:text="aidl"
+            android:textSize="16sp"
+            />
+
+        <Button
+            android:id="@+id/btn_provider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+            android:text="provider"
+            android:textSize="16sp"
+            />
+
+        <Button
+            android:id="@+id/btn_tpc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+            android:text="SOCKET"
+            android:textSize="16sp"
+            />
+    </LinearLayout>
     <Button
-        android:id="@+id/btn_messenger"
+        android:id="@+id/btn_pool"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/dp_10"
-        android:text="messenger"
+        android:text="pool"
         android:textSize="16sp"
         />
-
-    <Button
-        android:id="@+id/btn_aidl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/dp_10"
-        android:text="aidl"
-        android:textSize="16sp"
-        />
-
 </LinearLayout>

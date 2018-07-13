@@ -12,7 +12,10 @@ import android.widget.Toast;
 
 import com.sz.jjj.R;
 import com.sz.jjj.ipc.aidl.BookManagerActivity;
+import com.sz.jjj.ipc.bindpond.BindPoolActivity;
 import com.sz.jjj.ipc.messenger.MessengerActivity;
+import com.sz.jjj.ipc.provide.ProviderActivity;
+import com.sz.jjj.ipc.socket.TCPClientActivity;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -56,7 +59,8 @@ public class IPCActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.btn_ipc1, R.id.btn_ipc2, R.id.btn_save, R.id.btn_serialize, R.id.btn_deserialize,
-            R.id.btn_Parcelable, R.id.btn_messenger, R.id.btn_aidl})
+            R.id.btn_Parcelable, R.id.btn_messenger, R.id.btn_aidl, R.id.btn_provider, R.id.btn_tpc,
+            R.id.btn_pool})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_ipc1:
@@ -114,6 +118,15 @@ public class IPCActivity extends AppCompatActivity {
                 break;
             case R.id.btn_aidl:
                 startActivity(new Intent(this, BookManagerActivity.class));
+                break;
+            case R.id.btn_provider:
+                startActivity(new Intent(this, ProviderActivity.class));
+                break;
+            case R.id.btn_tpc:
+                startActivity(new Intent(this, TCPClientActivity.class));
+                break;
+            case R.id.btn_pool:
+                startActivity(new Intent(this, BindPoolActivity.class));
                 break;
             default:
         }

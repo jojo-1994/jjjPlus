@@ -18,6 +18,10 @@ public class Book implements Parcelable {
         bookName = in.readString();
     }
 
+    public Book() {
+
+    }
+
     public Book(int bookId, String bookName) {
         this.bookId = bookId;
         this.bookName = bookName;
@@ -62,5 +66,10 @@ public class Book implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(bookId);
         parcel.writeString(bookName);
+    }
+
+    @Override
+    public String toString() {
+        return "bookId:" + bookId + "bookName:" + bookName;
     }
 }

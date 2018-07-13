@@ -5,6 +5,7 @@
           xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
@@ -126,6 +127,26 @@
                 android:resource="@xml/access_click_config"/>
         </service>
 
+        <provider
+            android:name=".ipc.provide.BookProvider"
+            android:authorities="com.sz.jjj.book.provider"
+            android:permission="com.sz.PROVIDER"
+            android:process=":provider">
+        </provider>
+
+        <activity android:name=".ipc.provide.ProviderActivity"/>
+
+        <service
+            android:name="com.sz.jjj.ipc.socket.TPCServerService"
+            android:process=":tcp">
+        </service>
+
+        <activity android:name=".ipc.socket.TCPClientActivity"/>
+
+        <service android:name=".ipc.bindpond.BinderPoolService"/>
+            <!--android:process=":pool"/>-->
+
+        <activity android:name=".ipc.bindpond.BindPoolActivity"/>
     </application>
 
 </manifest>
