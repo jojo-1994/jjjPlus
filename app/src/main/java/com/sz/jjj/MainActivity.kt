@@ -23,6 +23,7 @@ import com.sz.jjj.rxjava.RxjavaActivity
 import com.sz.jjj.statusbar.StatusBarActivity
 import com.sz.jjj.updateapk.UpdateApkActivity
 import com.sz.jjj.view.activity.CustomViewActivity
+import com.sz.jjj.view.activity.ViewActivity
 import com.sz.jjj.xml.XmlParseActivity
 import kotlinx.android.synthetic.main.main_activity.*
 
@@ -47,7 +48,8 @@ class MainActivity : AppCompatActivity() {
             "大图下载" to PicLoadImageActivity::class.java,
             "注解" to AnnotationActivity::class.java,
             "反射" to ReflectionPerformanceActivity::class.java,
-            "屏幕适配" to AdapterActivity::class.java
+            "屏幕适配" to AdapterActivity::class.java,
+            "View" to ViewActivity::class.java
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

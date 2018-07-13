@@ -147,6 +147,8 @@
             <!--android:process=":pool"/>-->
 
         <activity android:name=".ipc.bindpond.BindPoolActivity"/>
+
+        <activity android:name=".view.activity.ViewActivity"/>
     </application>
 
 </manifest>
