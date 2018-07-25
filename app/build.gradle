@@ -4,8 +4,7 @@ apply plugin: 'kotlin-android-extensions' // 启动扩展支持直接使用id
 //apply plugin: 'com.neenbedankt.android-apt' // 启动扩展支持直接使用id
 
 android {
-    compileSdkVersion rootProject.ext.versions.compileSdkVersion
-
+    compileSdkVersion 27
     defaultConfig {
         applicationId "com.sz.jjj"
         minSdkVersion rootProject.ext.versions.minSdkVersion
@@ -21,19 +20,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
-    lintOptions{
+    lintOptions {
         abortOnError false
     }
-
     configurations.all {
         resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.2'
     }
-
     packagingOptions {
         exclude 'META-INF/services/javax.annotation.processing.Processor'
     }
-
+    buildToolsVersion '27.0.3'
 }
 
 dependencies {
@@ -73,7 +69,6 @@ dependencies {
     implementation 'com.google.dagger:dagger-android:2.14.1'
     implementation 'com.google.dagger:dagger-android-support:2.14.1'
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.14.1'
-
 }
 
 repositories {

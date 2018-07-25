@@ -105,6 +105,7 @@
         <activity android:name=".adapter.AdapterActivity"/>
         <activity android:name=".view.activity.SemicircleActivity"/>
         <activity android:name=".view.activity.CustomTabLayoutActivity"/>
+        <activity android:name=".view.activity.ScrollActivity"/>
 
         <service
             android:name="com.sz.jjj.access.service.NotificationMonitorService"

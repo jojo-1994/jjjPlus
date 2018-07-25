@@ -1,15 +1,15 @@
 package com.sz.jjj.view.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
-import android.view.View;
 import android.view.ViewConfiguration;
-import android.widget.Scroller;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.sz.jjj.R;
@@ -17,6 +17,7 @@ import com.sz.jjj.baselibrary.util.DisplayUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * @author:jjj
@@ -27,6 +28,8 @@ import butterknife.ButterKnife;
 public class ViewActivity extends Activity {
     @BindView(R.id.tv_view)
     TextView tvView;
+    @BindView(R.id.ll_content)
+    LinearLayout llContent;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -91,17 +94,7 @@ public class ViewActivity extends Activity {
         gestureDetector.setIsLongpressEnabled(false);
         tvView.setFocusable(true);
         tvView.setClickable(true);
-        tvView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                boolean comsume = gestureDetector.onTouchEvent(motionEvent);
-                return comsume;
-            }
-        });
-        Scroller scroller=new Scroller(this);
-    }
 
-    private void smoothScrollTo(int destX, int destY){
 
     }
 
@@ -137,5 +130,10 @@ public class ViewActivity extends Activity {
         velocityTracker.recycle();
         return super.onTouchEvent(event);
 
+    }
+
+    @OnClick(R.id.tv_scroll)
+    public void onViewClicked() {
+        startActivity(new Intent(this, ScrollActivity.class));
     }
 }
