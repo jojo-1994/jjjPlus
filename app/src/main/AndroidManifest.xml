@@ -145,11 +145,11 @@
         <activity android:name=".ipc.socket.TCPClientActivity"/>
 
         <service android:name=".ipc.bindpond.BinderPoolService"/>
-            <!--android:process=":pool"/>-->
+        <!--android:process=":pool"/>-->
 
         <activity android:name=".ipc.bindpond.BindPoolActivity"/>
-
         <activity android:name=".view.activity.ViewActivity"/>
+
     </application>
 
 </manifest>

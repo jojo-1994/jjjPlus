@@ -2,6 +2,7 @@ package com.sz.jjj.view.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -9,11 +10,14 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.sz.jjj.R;
 import com.sz.jjj.baselibrary.util.DisplayUtil;
+import com.sz.jjj.baselibrary.util.ToastUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,6 +40,18 @@ public class ViewActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_activity);
         ButterKnife.bind(this);
+        ViewGroup frameLayout=findViewById(android.R.id.content);
+        if(frameLayout instanceof LinearLayout){
+            ToastUtil.show(this, "LinearLayout");
+        }else if(frameLayout instanceof FrameLayout){
+            ToastUtil.show(this, "FrameLayout");
+        }
+        ViewGroup.LayoutParams params=frameLayout.getLayoutParams();
+        params.width=ViewGroup.LayoutParams.WRAP_CONTENT;
+        params.height=ViewGroup.LayoutParams.WRAP_CONTENT;
+        frameLayout.setLayoutParams(params);
+        LinearLayout layout= (LinearLayout) frameLayout.getChildAt(0);
+        frameLayout.setBackgroundColor(Color.GREEN);
         final GestureDetector gestureDetector = new GestureDetector(new GestureDetector.OnGestureListener() {
             @Override
             public boolean onDown(MotionEvent motionEvent) {
@@ -94,8 +110,6 @@ public class ViewActivity extends Activity {
         gestureDetector.setIsLongpressEnabled(false);
         tvView.setFocusable(true);
         tvView.setClickable(true);
-
-
     }
 
 

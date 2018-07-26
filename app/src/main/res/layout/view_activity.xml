@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ll_content"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<LinearLayout android:id="@+id/ll_content"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/red_btn_bg_color"
+              android:orientation="vertical"
+    >
 
     <TextView
         android:id="@+id/tv_view"
@@ -11,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
-        android:text="字体块" />
+        android:text="字体块"
+        />
 
     <TextView
         android:id="@+id/tv_scroll"
@@ -19,5 +22,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
-        android:text="滑动冲突" />
+        android:text="滑动冲突"
+        />
 </LinearLayout>

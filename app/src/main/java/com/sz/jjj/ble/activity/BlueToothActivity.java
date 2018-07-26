@@ -31,14 +31,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.sz.jjj.R;
 import com.sz.jjj.ble.adapter.BLTAdapter;
 import com.sz.jjj.ble.utils.CRC16;
-import com.sz.jjj.gson.ModifierSample;
 
-import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -164,7 +160,7 @@ public class BlueToothActivity extends AppCompatActivity {
                 BluetoothDevice device = result.getDevice();
                 if (!devices.contains(device)) {  //判断是否已经添加
                     devices.add(device);
-                    strList.add(device.getName() + "-----" + device.getAddress() + (device.getBondState() == BluetoothDevice.BOND_BONDED ? "已绑定" : "未绑定"));
+                    strList.add(device.getName() + "--" + device.getName() + "--" + device.getAddress() + (device.getBondState() == BluetoothDevice.BOND_BONDED ? "已绑定" : "未绑定"));
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -302,8 +298,8 @@ public class BlueToothActivity extends AppCompatActivity {
                         BluetoothGattService mnotyGattService = bleGatt.getService(UUID_SERVICE);//找特定的某个服务
                         BluetoothGattCharacteristic mCharacteristic = mnotyGattService.getCharacteristic(UUID_READ_WRITE);
 
-                        byte[] bytes =("&DC " + "18 02 07 13 06" + " ").getBytes();
-                        byte[] test=getData(bytes);
+                        byte[] bytes = ("&DC " + "18 02 07 13 06" + " ").getBytes();
+                        byte[] test = getData(bytes);
                         mCharacteristic.setValue(test);//参数可以是byte数组，字符串等。
                         bleGatt.writeCharacteristic(mCharacteristic);
 //                        bleGatt.setCharacteristicNotification(mCharacteristic, true);
