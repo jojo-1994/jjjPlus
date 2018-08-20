@@ -21,6 +21,8 @@ import com.sz.jjj.recyclerview.activity.RecyclerViewActivity
 import com.sz.jjj.reflection.ReflectionPerformanceActivity
 import com.sz.jjj.rxjava.RxjavaActivity
 import com.sz.jjj.statusbar.StatusBarActivity
+import com.sz.jjj.thread.activity.LeakBlueScanActivity
+import com.sz.jjj.thread.activity.ThreadActivity
 import com.sz.jjj.updateapk.UpdateApkActivity
 import com.sz.jjj.view.activity.CustomViewActivity
 import com.sz.jjj.view.activity.ViewActivity
@@ -49,7 +51,9 @@ class MainActivity : AppCompatActivity() {
             "注解" to AnnotationActivity::class.java,
             "反射" to ReflectionPerformanceActivity::class.java,
             "屏幕适配" to AdapterActivity::class.java,
-            "View" to ViewActivity::class.java
+            "View" to ViewActivity::class.java,
+            "内存泄漏" to LeakBlueScanActivity::class.java,
+            "线程" to ThreadActivity::class.java
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
