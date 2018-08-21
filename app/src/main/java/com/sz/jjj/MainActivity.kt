@@ -8,6 +8,7 @@ import com.sz.jjj.access.ListernNotificationActivity
 import com.sz.jjj.adapter.AdapterActivity
 import com.sz.jjj.anim.activity.AnimActivity
 import com.sz.jjj.annotation.AnnotationActivity
+import com.sz.jjj.bitmap.BitmapActivity
 import com.sz.jjj.ble.activity.BlueToothActivity
 import com.sz.jjj.database.DataBaseActivity
 import com.sz.jjj.gson.GsonActivity
@@ -53,7 +54,8 @@ class MainActivity : AppCompatActivity() {
             "屏幕适配" to AdapterActivity::class.java,
             "View" to ViewActivity::class.java,
             "内存泄漏" to LeakBlueScanActivity::class.java,
-            "线程" to ThreadActivity::class.java
+            "线程" to ThreadActivity::class.java,
+            "bitmap" to BitmapActivity::class.java
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

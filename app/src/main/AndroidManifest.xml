@@ -154,6 +154,7 @@
         <activity android:name=".thread.activity.AsyncTaskActivity"/>
         <activity android:name=".thread.activity.IntentServiceActivity"/>
         <activity android:name=".thread.activity.ExecutorPoolActivity"/>
+        <activity android:name=".bitmap.BitmapActivity"/>
 
         <service android:name=".thread.LocalIntentService"/>
     </application>
