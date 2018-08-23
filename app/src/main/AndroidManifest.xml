@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="com.sz.jjj"
           xmlns:android="http://schemas.android.com/apk/res/android"
-
           xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -14,10 +13,11 @@
     <uses-permission
         android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
         tools:ignore="ProtectedPermissions"/>
-    <!--允许程序连接到已配对的蓝牙设备。-->
+    <!-- 允许程序连接到已配对的蓝牙设备。 -->
     <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <!--允许程序发现和配对蓝牙设备。-->
+    <!-- 允许程序发现和配对蓝牙设备。 -->
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -26,9 +26,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MarioTheme"
-        tools:replace="android:icon"
-        >
-        <activity android:name="com.sz.jjj.MainActivity">
+        tools:replace="android:icon">
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -67,7 +68,6 @@
             android:process=":remote"/>
 
         <activity android:name=".ipc.messenger.MessengerActivity"/>
-
         <activity android:name=".ipc.aidl.BookManagerActivity"/>
 
         <service
@@ -82,7 +82,6 @@
             android:name=".ipc.IPC2Activity"
             android:process="com.ipc.remote">
         </activity>
-
         <activity
             android:name=".launchmode.LaunchStardedActivity"
             android:launchMode="standard"/>
@@ -108,21 +107,21 @@
         <activity android:name=".view.activity.ScrollActivity"/>
 
         <service
-            android:name="com.sz.jjj.access.service.NotificationMonitorService"
+            android:name=".access.service.NotificationMonitorService"
             android:label="NotificationMonitor"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService"/>
             </intent-filter>
         </service>
-
         <service
-            android:name="com.sz.jjj.access.service.MyAccessibilityService"
+            android:name=".access.service.MyAccessibilityService"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService"/>
             </intent-filter>
+
             <meta-data
                 android:name="android.accessibilityservice"
                 android:resource="@xml/access_click_config"/>
@@ -138,14 +137,14 @@
         <activity android:name=".ipc.provide.ProviderActivity"/>
 
         <service
-            android:name="com.sz.jjj.ipc.socket.TPCServerService"
+            android:name=".ipc.socket.TPCServerService"
             android:process=":tcp">
         </service>
 
         <activity android:name=".ipc.socket.TCPClientActivity"/>
 
         <service android:name=".ipc.bindpond.BinderPoolService"/>
-        <!--android:process=":pool"/>-->
+        <!-- android:process=":pool"/> -->
 
         <activity android:name=".ipc.bindpond.BindPoolActivity"/>
         <activity android:name=".view.activity.ViewActivity"/>
@@ -155,8 +154,20 @@
         <activity android:name=".thread.activity.IntentServiceActivity"/>
         <activity android:name=".thread.activity.ExecutorPoolActivity"/>
         <activity android:name=".bitmap.BitmapActivity"/>
+        <activity android:name=".remoteview.RemoteViewActivity"/>
 
         <service android:name=".thread.LocalIntentService"/>
+
+        <receiver android:name=".remoteview.MyAppWidgetProvider">
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_provider_info"/>
+
+            <intent-filter>
+                <action android:name="com.sz.jjj.remoteview.action.CLICK"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

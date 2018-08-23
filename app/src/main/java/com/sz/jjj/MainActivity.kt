@@ -20,6 +20,7 @@ import com.sz.jjj.pic.PicLoadImageActivity
 import com.sz.jjj.recyclerview.RecyclerViewUtils
 import com.sz.jjj.recyclerview.activity.RecyclerViewActivity
 import com.sz.jjj.reflection.ReflectionPerformanceActivity
+import com.sz.jjj.remoteview.RemoteViewActivity
 import com.sz.jjj.rxjava.RxjavaActivity
 import com.sz.jjj.statusbar.StatusBarActivity
 import com.sz.jjj.thread.activity.LeakBlueScanActivity
@@ -55,7 +56,8 @@ class MainActivity : AppCompatActivity() {
             "View" to ViewActivity::class.java,
             "内存泄漏" to LeakBlueScanActivity::class.java,
             "线程" to ThreadActivity::class.java,
-            "bitmap" to BitmapActivity::class.java
+            "bitmap" to BitmapActivity::class.java,
+            "remoteview" to RemoteViewActivity::class.java
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
