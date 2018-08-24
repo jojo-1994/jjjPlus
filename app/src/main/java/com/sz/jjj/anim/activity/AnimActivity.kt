@@ -15,7 +15,10 @@ class AnimActivity : AppCompatActivity() {
     private val map = mapOf<String, Class<*>>(
             "仿美图底部导航" to MeituanBottomNavActivity::class.java,
             "3d翻转动画" to Rotate3dAnimActivity::class.java,
-            "旋转动画" to MusicButtonActivity::class.java
+            "旋转动画" to MusicButtonActivity::class.java,
+            "View动画" to ViewAnimActivity::class.java,
+            "作用于viewgroup的动画" to LayoutAnimationActivity::class.java,
+            "属性动画" to ObjectAnimActivity::class.java
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

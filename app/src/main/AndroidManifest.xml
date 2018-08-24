@@ -155,6 +155,11 @@
         <activity android:name=".thread.activity.ExecutorPoolActivity"/>
         <activity android:name=".bitmap.BitmapActivity"/>
         <activity android:name=".remoteview.RemoteViewActivity"/>
+        <activity android:name=".remoteview.SendRemoteViewActivity"
+            android:process=":remote"/>
+        <activity android:name=".anim.activity.ViewAnimActivity"/>
+        <activity android:name=".anim.activity.LayoutAnimationActivity"/>
+        <activity android:name=".anim.activity.ObjectAnimActivity"/>
 
         <service android:name=".thread.LocalIntentService"/>
 

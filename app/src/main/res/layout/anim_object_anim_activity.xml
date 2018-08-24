@@ -5,32 +5,34 @@
               android:orientation="vertical"
     >
 
-    <Button
-        android:id="@+id/btn_notification"
+    <ImageView
+        android:id="@+id/image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="默认通知"
+        android:src="@drawable/anim_music_iv"
         />
 
     <Button
-        android:id="@+id/btn_notification2"
+        android:id="@+id/btn_anim1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="自定义通知"
+        android:layout_gravity="right"
+        android:text="平移"
         />
 
     <Button
-        android:id="@+id/btn_notification3"
+        android:id="@+id/btn_anim2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="打开发送远程View界面"
+        android:layout_gravity="right"
+        android:text="渐变"
         />
 
-    <LinearLayout
-        android:id="@+id/ll_remoteview_content"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btn_anim3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        ></LinearLayout>
-
+        android:layout_gravity="right"
+        android:text="动画集合"
+        />
 </LinearLayout>
