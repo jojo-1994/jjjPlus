@@ -10,6 +10,7 @@ import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothProfile;
+import android.bluetooth.BluetoothSocket;
 import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanResult;
@@ -35,6 +36,7 @@ import com.sz.jjj.R;
 import com.sz.jjj.ble.adapter.BLTAdapter;
 import com.sz.jjj.ble.utils.CRC16;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -290,18 +292,32 @@ public class BlueToothActivity extends AppCompatActivity {
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        String BLE_Service = "11223344-5566-7788-99aa-bbccddeeff00";
-                        String BLE_READ_WRITE = "00004a5b-0000-1000-8000-00805f9b34fb";
-                        final UUID UUID_SERVICE = UUID.fromString(BLE_Service);
-                        final UUID UUID_READ_WRITE = UUID.fromString(BLE_READ_WRITE);
+                        String BLE_Service = "00001524-1212-efde-1523-785feabcd123";
+                        final UUID uuid = UUID.fromString(BLE_Service);
+                        BluetoothSocket socket = null;
+                        try {
+                            socket = mTargetDevice.createRfcommSocketToServiceRecord(uuid);
+                            bleAdapter.cancelDiscovery();
+                            socket.connect();
+                        } catch (IOException e) {
+                            try {
+                                socket.close();
+                            } catch (IOException closeException) { }
+                            return;
+                        }
 
-                        BluetoothGattService mnotyGattService = bleGatt.getService(UUID_SERVICE);//找特定的某个服务
-                        BluetoothGattCharacteristic mCharacteristic = mnotyGattService.getCharacteristic(UUID_READ_WRITE);
+//                        String BLE_Service = "00001524-1212-efde-1523-785feabcd123";
+//                        String BLE_READ_WRITE = "00004a5b-0000-1000-8000-00805f9b34fb";
+//                        final UUID UUID_SERVICE = UUID.fromString(BLE_Service);
+//                        final UUID UUID_READ_WRITE = UUID.fromString(BLE_READ_WRITE);
+//                        00001524-1212-efde-1523-785feabcd123
+//                        BluetoothGattService mnotyGattService = bleGatt.getService(UUID_SERVICE);//找特定的某个服务
+//                        BluetoothGattCharacteristic mCharacteristic = mnotyGattService.getCharacteristic(UUID_READ_WRITE);
 
-                        byte[] bytes = ("&DC " + "18 02 07 13 06" + " ").getBytes();
-                        byte[] test = getData(bytes);
-                        mCharacteristic.setValue(test);//参数可以是byte数组，字符串等。
-                        bleGatt.writeCharacteristic(mCharacteristic);
+//                        byte[] bytes = ("&DC " + "18 02 07 13 06" + " ").getBytes();
+//                        byte[] test = getData(bytes);
+//                        mCharacteristic.setValue(test);//参数可以是byte数组，字符串等。
+//                        bleGatt.writeCharacteristic(mCharacteristic);
 //                        bleGatt.setCharacteristicNotification(mCharacteristic, true);
 
 //                    bleGatt.readCharacteristic(characteristics.get(position));

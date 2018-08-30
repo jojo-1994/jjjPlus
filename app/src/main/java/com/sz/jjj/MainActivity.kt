@@ -11,6 +11,7 @@ import com.sz.jjj.annotation.AnnotationActivity
 import com.sz.jjj.bitmap.BitmapActivity
 import com.sz.jjj.ble.activity.BlueToothActivity
 import com.sz.jjj.database.DataBaseActivity
+import com.sz.jjj.drawable.DrawableActivity
 import com.sz.jjj.gson.GsonActivity
 import com.sz.jjj.inputmanager.activity.InputManagerActivity
 import com.sz.jjj.ipc.IPCActivity
@@ -57,7 +58,8 @@ class MainActivity : AppCompatActivity() {
             "内存泄漏" to LeakBlueScanActivity::class.java,
             "线程" to ThreadActivity::class.java,
             "bitmap" to BitmapActivity::class.java,
-            "remoteview" to RemoteViewActivity::class.java
+            "remoteview" to RemoteViewActivity::class.java,
+            "Drawable" to DrawableActivity::class.java
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

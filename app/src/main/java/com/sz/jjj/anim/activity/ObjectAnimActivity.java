@@ -32,6 +32,8 @@ public class ObjectAnimActivity extends AppCompatActivity {
     Button btnAnim2;
     @BindView(R.id.btn_anim3)
     Button btnAnim3;
+    @BindView(R.id.btn_anim4)
+    Button btnAnim4;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,7 +44,7 @@ public class ObjectAnimActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btn_anim1, R.id.btn_anim2, R.id.btn_anim3})
+    @OnClick({R.id.btn_anim1, R.id.btn_anim2, R.id.btn_anim3, R.id.btn_anim4})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_anim1:
@@ -73,6 +75,9 @@ public class ObjectAnimActivity extends AppCompatActivity {
                         ObjectAnimator.ofFloat(image, "alpha", 1, 0.25f, 1)
                 );
                 set.start();
+                break;
+            case R.id.btn_anim4:
+                ObjectAnimator.ofInt(btnAnim4, "width", 500).setDuration(5000).start();
                 break;
             default:
         }

@@ -160,6 +160,7 @@
         <activity android:name=".anim.activity.ViewAnimActivity"/>
         <activity android:name=".anim.activity.LayoutAnimationActivity"/>
         <activity android:name=".anim.activity.ObjectAnimActivity"/>
+        <activity android:name=".drawable.DrawableActivity"/>
 
         <service android:name=".thread.LocalIntentService"/>
 
