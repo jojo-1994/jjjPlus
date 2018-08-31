@@ -29,6 +29,7 @@ import com.sz.jjj.thread.activity.ThreadActivity
 import com.sz.jjj.updateapk.UpdateApkActivity
 import com.sz.jjj.view.activity.CustomViewActivity
 import com.sz.jjj.view.activity.ViewActivity
+import com.sz.jjj.window.WindowActivity
 import com.sz.jjj.xml.XmlParseActivity
 import kotlinx.android.synthetic.main.main_activity.*
 
@@ -59,7 +60,8 @@ class MainActivity : AppCompatActivity() {
             "线程" to ThreadActivity::class.java,
             "bitmap" to BitmapActivity::class.java,
             "remoteview" to RemoteViewActivity::class.java,
-            "Drawable" to DrawableActivity::class.java
+            "Drawable" to DrawableActivity::class.java,
+            "window" to WindowActivity::class.java
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

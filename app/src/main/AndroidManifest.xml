@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <!-- 允许程序发现和配对蓝牙设备。 -->
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -161,6 +161,7 @@
         <activity android:name=".anim.activity.LayoutAnimationActivity"/>
         <activity android:name=".anim.activity.ObjectAnimActivity"/>
         <activity android:name=".drawable.DrawableActivity"/>
+        <activity android:name=".window.WindowActivity"/>
 
         <service android:name=".thread.LocalIntentService"/>
 
