@@ -162,4 +162,8 @@ public class MainActivity extends AppCompatActivity {
         mSearch.setTag("0");
         mSearch.setText(R.string.meter_search);
     }
+
+    public void serNum(View view) {
+        mPresenter.getSerNum();
+    }
 }

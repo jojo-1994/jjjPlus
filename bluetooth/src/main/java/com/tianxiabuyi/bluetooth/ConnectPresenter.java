@@ -337,4 +337,11 @@ public class ConnectPresenter {
             }, 1000);
         }
     }
+
+    public void getSerNum() {
+        if (mTaiDocMeter != null) {
+            String serialNumber = mTaiDocMeter.getSerialNumberRecord().getSerialNumber();
+            Toast.makeText(mActivity, serialNumber, Toast.LENGTH_SHORT).show();
+        }
+    }
 }
