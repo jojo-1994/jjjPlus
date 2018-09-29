@@ -34,8 +34,11 @@ import android.widget.Toast;
 
 import com.sz.jjj.R;
 import com.sz.jjj.ble.adapter.BLTAdapter;
+import com.taidoc.pclinklibrary.exceptions.CommunicationTimeoutException;
+import com.taidoc.pclinklibrary.exceptions.MeterCmdWrongException;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
@@ -46,7 +49,7 @@ import butterknife.OnClick;
 /**
  * Created by jjj on 2017/11/27.
  *
- * @description: 蓝牙demo
+ * @description: 博士医生血糖仪蓝牙
  */
 
 public class BlueToothActivity extends AppCompatActivity {
@@ -163,7 +166,7 @@ public class BlueToothActivity extends AppCompatActivity {
             if (bytes == null) {
                 return;
             }
-            Log.e(TAG, "The response is Changed");
+            Log.e(TAG, "The response is Changed" + bytes.toString());
             String response = byteArrayToStr(characteristic.getValue());
         }
 
@@ -224,10 +227,12 @@ public class BlueToothActivity extends AppCompatActivity {
         // 初始化列表
         adapter = new BLTAdapter(this, strList);
         list.setAdapter(adapter);
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    @OnClick({R.id.btn_open_bluetooth, R.id.btn_search, R.id.btn_disconnect, R.id.btn_write})
+    @OnClick({R.id.btn_open_bluetooth, R.id.btn_search, R.id.btn_disconnect, R.id.btn_write,
+            R.id.btn_deal})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_open_bluetooth:
@@ -250,14 +255,146 @@ public class BlueToothActivity extends AppCompatActivity {
             case R.id.btn_write:
                 // 读取操作
                 if (mBluetoothGatt != null) {
-                    byte[] sendValue = new byte[]{0x51, 0x27, 0x00, 0x00, 0x00, 0x00, (byte) 0xa3, (byte) 0x1b};
+                    byte[] sendValue = new byte[]{0x51, 0x26, 0x00, 0x00, 0x00, 0x00, (byte) 0xa3, (byte) 0x1a};
                     mBluetoothGattChar.setValue(sendValue);
                     mBluetoothGatt.writeCharacteristic(mBluetoothGattChar);
+                }
+                break;
+            case R.id.btn_deal:
+                byte[] bytes = new byte[]{0x51, 0x26, 0x00, 0x00, 0x00, 0x00, (byte) 0xa3, (byte) 0x1a};
+                initByteInStream();
+                initInStream();
+                putInStream(bytes);
+                putByteInStream(bytes);
+                int[] i = read(8);
+                for (int ii : i) {
+                    Log.e(TAG, ii+"");
                 }
                 break;
             default:
         }
     }
+
+    public static int calculateOneByteCheckSum(int[] cmd, int startIndex, int endIndex) {
+        int checkSum = 0;
+
+        for(int i = startIndex; i <= endIndex; ++i) {
+            checkSum += cmd[i];
+        }
+
+        return checkSum & 255;
+    }
+
+    private List<Byte> mInStream;
+    private int mInStreamSeek;
+    private List<Byte> mByteInStream;
+    private int mByteInStreamSeek;
+
+    private void initByteInStream() {
+        if (this.mByteInStream == null) {
+            this.mByteInStream = new ArrayList();
+        } else {
+            this.mByteInStream.clear();
+        }
+
+        this.mByteInStreamSeek = -1;
+    }
+
+    private void putInStream(byte[] bytes) {
+        if (this.mInStream.size() > 0 && this.mInStreamSeek == this.mInStream.size() - 1 && this.mInStreamSeek >= 511) {
+            this.initInStream();
+        }
+
+        byte[] var5 = bytes;
+        int var4 = bytes.length;
+
+        for (int var3 = 0; var3 < var4; ++var3) {
+            byte b = var5[var3];
+            this.mInStream.add(Byte.valueOf(b));
+        }
+    }
+
+    private void putByteInStream(byte[] bytes) {
+        if(this.mByteInStream != null) {
+            if(this.mByteInStream.size() > 0 && this.mByteInStreamSeek == this.mByteInStream.size() - 1 && this.mByteInStreamSeek == 511) {
+                this.initInStream();
+            }
+
+            byte[] var5 = bytes;
+            int var4 = bytes.length;
+
+            for(int var3 = 0; var3 < var4; ++var3) {
+                byte b = var5[var3];
+                this.mByteInStream.add(Byte.valueOf(b));
+            }
+
+        }
+    }
+
+    private void initInStream() {
+        if (this.mInStream == null) {
+            this.mInStream = new ArrayList();
+        } else {
+            this.mInStream.clear();
+        }
+
+        this.mInStreamSeek = -1;
+    }
+
+    public int[] read(int rxCmdLength) {
+        Log.i(TAG, "Start Receive connected InputStream.");
+
+        try {
+            List<Integer> rxCmdList = new ArrayList();
+
+            while (true) {
+                while (availableByteInStream() > 0) {
+                    int readByte = readByteInStream();
+                    if (rxCmdList.size() != 0 || readByte == 81) {
+                        rxCmdList.add(Integer.valueOf(readByte));
+                        if (rxCmdList.size() == rxCmdLength) {
+                            break;
+                        }
+                    }
+                }
+
+                int[] rxCmd;
+                if (rxCmdList.size() > 0 && rxCmdList.size() == rxCmdLength) {
+                    rxCmd = changeRxCmdListToArray(rxCmdList);
+                    return rxCmd;
+                }
+            }
+        } catch (CommunicationTimeoutException var10) {
+            Log.e(TAG, "receive time out, and retry", var10);
+            return null;
+        } catch (MeterCmdWrongException var11) {
+            Log.e(TAG, "the return command length error, and retry", var11);
+            return null;
+        }
+    }
+
+    private int readByteInStream() {
+        return this.mByteInStream == null ? -1 : (this.availableByteInStream() > 0 ? ((Byte) this.mByteInStream.get(++this.mByteInStreamSeek)).byteValue() & 255 : -1);
+    }
+
+    private int[] changeRxCmdListToArray(List<Integer> rxCmdList) {
+        int[] rxCmd = new int[rxCmdList.size()];
+        Iterator<Integer> iterator = rxCmdList.iterator();
+
+        for (int i = 0; i < rxCmd.length; ++i) {
+            rxCmd[i] = ((Integer) iterator.next()).intValue();
+        }
+
+        return rxCmd;
+    }
+
+
+    private int availableByteInStream() {
+        return this.mByteInStream == null ? -1 : this.mByteInStream.size() - this.mByteInStreamSeek - 1;
+    }
+
+
+
 
     // 6.0 权限请求
     private boolean requestPermission() {

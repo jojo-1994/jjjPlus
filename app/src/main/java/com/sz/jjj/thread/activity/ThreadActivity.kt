@@ -16,7 +16,8 @@ class ThreadActivity : AppCompatActivity() {
             "AsyncTask" to AsyncTaskActivity::class.java,
             "蓝牙扫描--内存泄漏" to LeakBlueScanActivity::class.java,
             "IntentService" to IntentServiceActivity::class.java,
-            "线程池" to ExecutorPoolActivity::class.java
+            "线程池" to ExecutorPoolActivity::class.java,
+            "多个线程" to ThreadMoreActivity::class.java
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

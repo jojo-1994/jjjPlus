@@ -149,6 +149,7 @@
         <activity android:name=".ipc.bindpond.BindPoolActivity"/>
         <activity android:name=".view.activity.ViewActivity"/>
         <activity android:name=".thread.activity.ThreadActivity"/>
+        <activity android:name=".thread.activity.ThreadMoreActivity"/>
         <activity android:name=".thread.activity.LeakBlueScanActivity"/>
         <activity android:name=".thread.activity.AsyncTaskActivity"/>
         <activity android:name=".thread.activity.IntentServiceActivity"/>

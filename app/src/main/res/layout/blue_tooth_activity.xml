@@ -5,62 +5,77 @@
               android:orientation="vertical"
     >
 
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      >
-
-    <Button
-        android:id="@+id/btn_open_bluetooth"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="开启蓝牙"
-        />
+        >
 
-    <TextView
-        android:id="@+id/btn_state"
-        android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/btn_open_bluetooth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开启蓝牙"
+            />
+
+        <TextView
+            android:id="@+id/btn_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text=""
+            android:textSize="20sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text=""
-        android:textSize="20sp"
-        />
-  </LinearLayout>
+        >
 
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      >
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="蓝牙扫描"
+            />
 
-    <Button
-        android:id="@+id/btn_search"
-        android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/btn_disconnect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="断开连接"
+            />
+
+        <Button
+            android:id="@+id/btn_write"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="写入数据"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="蓝牙扫描"
-        />
+        >
 
-    <Button
-        android:id="@+id/btn_disconnect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="断开连接"
-        />
-
-    <Button
-        android:id="@+id/btn_write"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="写入数据"
-        />
-  </LinearLayout>
+        <Button
+            android:id="@+id/btn_deal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="处理事情"
+            />
+    </LinearLayout>
 
 
-  <ListView
-      android:id="@+id/list"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      ></ListView>
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ></ListView>
 
 </LinearLayout>
