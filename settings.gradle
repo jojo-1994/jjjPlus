@@ -1,2 +1,1 @@
-include ':app', ':baselibrary', ':rxjavaretrofitdemo', ':sweetDialog', ':bluetooth'
-//, ':mvpdemo', ':rxjavaretrofitdemo', ':speechDemo'
+include ':app', ':baselibrary', ':rxjavaretrofitdemo', ':sweetDialog', ':bluetooth', ':ndkdemo'//, ':mvpdemo', ':rxjavaretrofitdemo', ':speechDemo'

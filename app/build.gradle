@@ -30,10 +30,12 @@ android {
         exclude 'META-INF/services/javax.annotation.processing.Processor'
     }
     buildToolsVersion '27.0.3'
+    sourceSets { main { jni.srcDirs = ['src/main/jni', 'src/main/jni/'] } }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
     implementation rootProject.ext.dependencies["appcompat-v7"]
     implementation rootProject.ext.dependencies["recyclerview-v7"]

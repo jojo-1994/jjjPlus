@@ -18,6 +18,7 @@
     <!-- 允许程序发现和配对蓝牙设备。 -->
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -156,7 +157,8 @@
         <activity android:name=".thread.activity.ExecutorPoolActivity"/>
         <activity android:name=".bitmap.BitmapActivity"/>
         <activity android:name=".remoteview.RemoteViewActivity"/>
-        <activity android:name=".remoteview.SendRemoteViewActivity"
+        <activity
+            android:name=".remoteview.SendRemoteViewActivity"
             android:process=":remote"/>
         <activity android:name=".anim.activity.ViewAnimActivity"/>
         <activity android:name=".anim.activity.LayoutAnimationActivity"/>
@@ -176,6 +178,7 @@
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
             </intent-filter>
         </receiver>
+
     </application>
 
 </manifest>
