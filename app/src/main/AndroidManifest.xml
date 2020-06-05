@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.sz.jjj"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions"/>
+    <!-- 允许程序连接到已配对的蓝牙设备。 -->
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <!-- 允许程序发现和配对蓝牙设备。 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/MarioTheme"
+        tools:replace="android:icon">
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".anim.activity.AnimActivity"/>
+        <activity android:name=".anim.activity.MeituanBottomNavActivity"/>
+        <activity android:name=".anim.activity.MusicButtonActivity"/>
+        <activity android:name=".anim.activity.Rotate3dAnimActivity"/>
+        <activity android:name=".recyclerview.activity.EmptyRecyclerviewActivity"/>
+        <activity android:name=".view.activity.CustomViewActivity"/>
+        <activity android:name=".view.activity.FiveStarsViewActivity"/>
+        <activity android:name=".view.activity.SlidingTabActivity"/>
+        <activity android:name=".view.activity.SoftKeyboardActivity"/>
+        <activity android:name=".view.activity.VideoViewActivity"/>
+        <activity android:name=".view.activity.WebViewActivity"/>
+        <activity android:name=".access.ListernNotificationActivity"/>
+        <activity android:name=".database.DataBaseActivity"/>
+        <activity android:name=".statusbar.StatusBarActivity"/>
+        <activity android:name=".xml.XmlParseActivity"/>
+        <activity android:name=".updateapk.UpdateApkActivity"/>
+        <activity android:name=".lockscreen.activity.LockScreenStartActivity"/>
+        <activity android:name=".lockscreen.activity.LockScreenActivity"/>
+        <activity android:name=".ble.activity.BlueToothActivity"/>
+        <activity android:name=".inputmanager.activity.InputManagerActivity"/>
+        <activity android:name=".gson.GsonActivity"/>
+        <activity android:name=".recyclerview.activity.RecyclerViewActivity"/>
+        <activity android:name=".recyclerview.activity.CommonRecyclerViewActivity"/>
+        <activity android:name=".recyclerview.activity.MultiItemRecyclerViewActivity"/>
+        <activity android:name=".ipc.IPCActivity"/>
+        <activity android:name=".rxjava.RxjavaActivity"/>
+
+        <service
+            android:name=".ipc.messenger.MessengerService"
+            android:process=":remote"/>
+
+        <activity android:name=".ipc.messenger.MessengerActivity"/>
+        <activity android:name=".ipc.aidl.BookManagerActivity"/>
+
+        <service
+            android:name=".ipc.aidl.BookManagerService"
+            android:process=":remote"/>
+
+        <activity
+            android:name=".ipc.IPC1Activity"
+            android:process=".remote">
+        </activity>
+        <activity
+            android:name=".ipc.IPC2Activity"
+            android:process="com.ipc.remote">
+        </activity>
+        <activity
+            android:name=".launchmode.LaunchStardedActivity"
+            android:launchMode="standard"/>
+        <activity
+            android:name=".launchmode.LaunchSingleTopActivity"
+            android:launchMode="singleTop"/>
+        <activity
+            android:name=".launchmode.LaunchSingleTaskActivity"
+            android:launchMode="singleTask"/>
+        <activity
+            android:name=".launchmode.LaunchSingleInstanceActivity"
+            android:launchMode="singleInstance"/>
+        <activity
+            android:name=".launchmode.LaunchSingleInstanceActivity2"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".pic.PicLoadImageActivity"/>
+        <activity android:name=".annotation.AnnotationActivity"/>
+        <activity android:name=".annotation.AnnotationActivity2"/>
+        <activity android:name=".reflection.ReflectionPerformanceActivity"/>
+        <activity android:name=".adapter.AdapterActivity"/>
+        <activity android:name=".view.activity.SemicircleActivity"/>
+        <activity android:name=".view.activity.CustomTabLayoutActivity"/>
+        <activity android:name=".view.activity.ScrollActivity"/>
+
+        <service
+            android:name=".access.service.NotificationMonitorService"
+            android:label="NotificationMonitor"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".access.service.MyAccessibilityService"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/access_click_config"/>
+        </service>
+
+        <provider
+            android:name=".ipc.provide.BookProvider"
+            android:authorities="com.sz.jjj.book.provider"
+            android:permission="com.sz.PROVIDER"
+            android:process=":provider">
+        </provider>
+
+        <activity android:name=".ipc.provide.ProviderActivity"/>
+
+        <service
+            android:name=".ipc.socket.TPCServerService"
+            android:process=":tcp">
+        </service>
+
+        <activity android:name=".ipc.socket.TCPClientActivity"/>
+
+        <service android:name=".ipc.bindpond.BinderPoolService"/>
+        <!-- android:process=":pool"/> -->
+
+        <activity android:name=".ipc.bindpond.BindPoolActivity"/>
+        <activity android:name=".view.activity.ViewActivity"/>
+        <activity android:name=".thread.activity.ThreadActivity"/>
+        <activity android:name=".thread.activity.ThreadMoreActivity"/>
+        <activity android:name=".thread.activity.LeakBlueScanActivity"/>
+        <activity android:name=".thread.activity.AsyncTaskActivity"/>
+        <activity android:name=".thread.activity.IntentServiceActivity"/>
+        <activity android:name=".thread.activity.ExecutorPoolActivity"/>
+        <activity android:name=".bitmap.BitmapActivity"/>
+        <activity android:name=".remoteview.RemoteViewActivity"/>
+        <activity
+            android:name=".remoteview.SendRemoteViewActivity"
+            android:process=":remote"/>
+        <activity android:name=".anim.activity.ViewAnimActivity"/>
+        <activity android:name=".anim.activity.LayoutAnimationActivity"/>
+        <activity android:name=".anim.activity.ObjectAnimActivity"/>
+        <activity android:name=".drawable.DrawableActivity"/>
+        <activity android:name=".window.WindowActivity"/>
+
+        <service android:name=".thread.LocalIntentService"/>
+
+        <receiver android:name=".remoteview.MyAppWidgetProvider">
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_provider_info"/>
+
+            <intent-filter>
+                <action android:name="com.sz.jjj.remoteview.action.CLICK"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

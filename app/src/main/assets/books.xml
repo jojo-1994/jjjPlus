@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<books>
+    <book>
+        <id>1001</id>
+        <name>Thinking In Java</name>
+        <price>80.00</price>
+        <test>
+            <aa>aa</aa>
+            <bb>bb</bb>
+        </test>
+    </book>
+    <book>
+        <id>1002</id>
+        <name>Core Java</name>
+        <price>90.00</price>
+        <test>
+            <aa>cc</aa>
+            <bb>dd</bb>
+        </test>
+    </book>
+    <book>
+        <id>1003</id>
+        <name>Hello, Andriod</name>
+        <price>100.00</price>
+        <test>
+            <aa>ee</aa>
+            <bb>ff</bb>
+        </test>
+    </book>
+</books>

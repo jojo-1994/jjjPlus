@@ -1,0 +1,108 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions' // 启动扩展支持直接使用id
+//apply plugin: 'com.neenbedankt.android-apt' // 启动扩展支持直接使用id
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.sz.jjj"
+        minSdkVersion rootProject.ext.versions.minSdkVersion
+        targetSdkVersion rootProject.ext.versions.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.2'
+    }
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+    buildToolsVersion '27.0.3'
+    sourceSets { main { jni.srcDirs = ['src/main/jni', 'src/main/jni/'] } }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    implementation rootProject.ext.dependencies["appcompat-v7"]
+    implementation rootProject.ext.dependencies["recyclerview-v7"]
+    implementation rootProject.ext.dependencies["RecyclerViewHelper"]
+    implementation rootProject.ext.dependencies["material-dialogs"]
+    implementation rootProject.ext.dependencies["okhttp"]
+    implementation rootProject.ext.dependencies["eventbus"]
+    implementation rootProject.ext.dependencies["design"]
+    implementation rootProject.ext.dependencies["multidex"]
+    implementation rootProject.ext.dependencies["rxjava"]
+    implementation rootProject.ext.dependencies["rxandroid"]
+    implementation rootProject.ext.dependencies["retrofit2"]
+    implementation rootProject.ext.dependencies["converter-gson"]
+    implementation rootProject.ext.dependencies["adapter-rxjava"]
+    implementation rootProject.ext.dependencies["gson"]
+    implementation rootProject.ext.dependencies["glide"]
+    implementation rootProject.ext.dependencies["volley"]
+    annotationProcessor rootProject.ext.dependencies["glide-compiler"]
+    implementation rootProject.ext.dependencies["butterknife"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    implementation project(':baselibrary')
+    // Kotlin https://www.kotlincn.net/docs/reference/using-gradle.html
+    // Kotlin 标准库
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    // 针对jdk8
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    // Kotlin 反射
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    implementation 'com.google.guava:guava:24.0-android'
+    // dagger
+    implementation 'com.google.dagger:dagger:2.14.1'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.14.1'
+    implementation 'com.google.dagger:dagger-android:2.14.1'
+    implementation 'com.google.dagger:dagger-android-support:2.14.1'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.14.1'
+    implementation 'com.jakewharton:disklrucache:2.0.2'
+}
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+signing {
+    required { hasProperty("release") && gradle.taskGraph.hasTask("uploadArchives") }
+    sign configurations.archives
+}
+
+uploadArchives {
+    configuration = configurations.archives
+    repositories.mavenDeployer {
+        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+        repository(url: 'http://localhost:8081/repository/jjj/') {//仓库地址
+            authentication(userName: "admin",//用户名
+                    password: "admin123")//密码
+        }
+
+        pom.project {
+            name 'TxUtils'
+            packaging 'aar'
+            description 'none'
+            url 'http://localhost:8081/repository/jjj/'//仓库地址
+            groupId "com.tianxiabuyi.android"
+            artifactId rootProject.name //LibA
+            version android.defaultConfig.versionName
+        }
+    }
+}

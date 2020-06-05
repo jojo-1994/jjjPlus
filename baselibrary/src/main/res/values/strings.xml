@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">baselibrary</string>
+
+    <!--权限相关-->
+    <string name="permission_cancel">取消</string>
+    <string name="permission_help">帮助</string>
+    <string name="permission_help_des">当前应用缺少必要的权限。\n\n请点击\"设置\"-\"权限\"-打开所需权限。\n\n最后点击两次后退按钮，即可返回。</string>
+    <string name="permission_settings">设置</string>
+
+    <string name="connect_error">网络连接失败,请检查网络</string>
+    <string name="connect_timeout">连接超时,请稍后再试</string>
+    <string name="bad_network">服务器异常</string>
+    <string name="parse_error">解析服务器响应数据失败</string>
+    <string name="unknown_error">未知错误</string>
+    <string name="response_return_error">服务器返回数据失败</string>
+    <string name="response_failure">服务器响应失败</string>
+    <string name="response_data_error">服务器数据格式异常</string>
+</resources>

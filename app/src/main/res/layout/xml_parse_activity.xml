@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/saxBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="saxXML" />
+    <Button
+        android:id="@+id/domBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="domXML" />
+    <Button
+        android:id="@+id/pullBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="pullXML" />
+
+    <Button
+        android:id="@+id/writeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="writeXML" />
+</LinearLayout>

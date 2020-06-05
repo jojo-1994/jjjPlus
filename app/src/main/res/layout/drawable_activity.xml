@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/drawable_bitmap"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/drawable_layer_list"
+        android:padding="@dimen/dp_10"
+        android:text="@string/app_name"
+        />
+
+    <ImageView
+        android:id="@+id/iv_level_list"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/drawable_level_list"
+        />
+
+    <TextView
+        android:id="@+id/tv_transition"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="@drawable/drawable_transition"
+        android:gravity="center"
+        android:padding="@dimen/dp_10"
+        android:text="TransitionDrawable"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+        android:id="@+id/tv_insert"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/drawable_insert"
+        android:gravity="center"
+        android:padding="@dimen/dp_10"
+        android:text="InsetDrawable"
+        android:textColor="@android:color/white"
+        />
+
+    <ImageView
+        android:id="@+id/iv_scale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/drawable_scale"
+        />
+
+    <ImageView
+        android:id="@+id/iv_clip"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center"
+        android:src="@drawable/drawable_clip"
+        />
+</LinearLayout>

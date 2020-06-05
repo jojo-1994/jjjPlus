@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scale xmlns:android="http://schemas.android.com/apk/res/android"
+       android:drawable="@drawable/anim_music_iv"
+       android:scaleGravity="center"
+       android:scaleHeight="80%"
+       android:scaleWidth="80%">
+</scale>

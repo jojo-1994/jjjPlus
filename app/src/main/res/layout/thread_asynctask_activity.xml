@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <Button
+        android:id="@+id/tv_download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始下载"
+        />
+
+    <Button
+        android:id="@+id/tv_execute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="并发执行"
+        />
+
+    <Button
+        android:id="@+id/tv_callable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="callable与future"
+        />
+
+</LinearLayout>

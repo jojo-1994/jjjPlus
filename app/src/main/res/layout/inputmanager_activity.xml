@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/keyboard_view"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    >
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="@dimen/dp_40"
+      android:orientation="vertical"
+      >
+
+    <TextView
+        android:id="@+id/iv_top"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dip"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:scaleType="fitXY"
+        android:text="图标"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:layout_marginEnd="36dip"
+        android:layout_marginStart="36dip"
+        android:layout_marginTop="48dip"
+        >
+
+      <EditText
+          android:id="@+id/et_account"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_centerVertical="true"
+          android:layout_marginEnd="8dip"
+          android:layout_marginStart="8dip"
+          android:background="@null"
+          android:imeOptions="actionNext"
+          android:textSize="14sp"
+          />
+
+      <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_alignParentBottom="true"
+          android:background="@color/gray_a8b0bc"
+          />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:layout_marginEnd="36dip"
+        android:layout_marginStart="36dip"
+        android:layout_marginTop="8dip"
+        >
+
+
+      <EditText
+          android:id="@+id/et_password"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_centerVertical="true"
+          android:layout_marginEnd="8dip"
+          android:layout_marginStart="8dip"
+          android:background="@null"
+          android:imeOptions="actionDone"
+          android:textSize="14sp"
+          />
+
+      <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_alignParentBottom="true"
+          android:background="@color/gray_a8b0bc"
+          />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/tv_login"
+        android:layout_width="match_parent"
+        android:layout_height="70dip"
+        android:layout_marginEnd="36dip"
+        android:layout_marginStart="36dip"
+        android:layout_marginTop="24dip"
+        android:background="@color/colorPrimary"
+        android:text="登录"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        />
+
+  </LinearLayout>
+
+</LinearLayout>

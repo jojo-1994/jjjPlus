@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:gravity="center"
+    >
+
+    <TextView
+        android:id="@+id/btn_translate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/red_btn_bg_color"
+        android:padding="20dp"
+        android:text="平移动画"
+        android:textColor="@android:color/white"
+        />
+
+    <Button
+        android:id="@+id/btn_scale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/success_stroke_color"
+        android:padding="20dp"
+        android:text="缩放动画"
+        android:textColor="@android:color/white"
+        />
+
+    <Button
+        android:id="@+id/btn_rotate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/warning_stroke_color"
+        android:padding="20dp"
+        android:text="旋转动画"
+        android:textColor="@android:color/white"
+        />
+
+    <Button
+        android:id="@+id/btn_alpha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/material_deep_teal_50"
+        android:padding="20dp"
+        android:text="透明度动画"
+        android:textColor="@android:color/white"
+        />
+</LinearLayout>

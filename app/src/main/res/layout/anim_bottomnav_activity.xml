@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:orientation="vertical"
+    >
+
+  <com.sz.jjj.view.widget.FlowLayout
+      android:id="@+id/flowLayout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="5dp"
+      app:height_space="10dp"
+      app:width_space="10dp"
+      ></com.sz.jjj.view.widget.FlowLayout>
+
+  <android.support.v4.view.ViewPager
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      >
+
+  </android.support.v4.view.ViewPager>
+
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="1px"
+      android:background="#ddd"
+      />
+
+  <RadioGroup
+      android:id="@+id/radiogroup"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:orientation="horizontal"
+      android:paddingBottom="2dp"
+      android:paddingTop="2dp"
+      >
+
+    <com.sz.jjj.baselibrary.widget.reveallayout.CircularRevealButton
+        android:id="@+id/crbtn_chats"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:anim_show="true"
+        app:defocus_color="#555"
+        app:defocus_icon="@drawable/anim_mtchats_crbtn_defocus"
+        app:focus_color="#45c01a"
+        app:focus_icon="@drawable/anim_mtchats_crbtn_focus"
+        app:is_selected="true"
+        app:text="微信"
+        />
+
+    <com.sz.jjj.baselibrary.widget.reveallayout.CircularRevealButton
+        android:id="@+id/crbtn_contacts"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:anim_show="true"
+        app:defocus_color="#555"
+        app:defocus_icon="@drawable/anim_mtcontacts_crbtn_defocus"
+        app:focus_color="#45c01a"
+        app:focus_icon="@drawable/anim_mtcontacts_crbtn_focus"
+        app:text="通讯录"
+        />
+
+    <com.sz.jjj.baselibrary.widget.reveallayout.CircularRevealButton
+        android:id="@+id/crbtn_discover"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:anim_show="true"
+        app:defocus_color="#555"
+        app:defocus_icon="@drawable/anim_mtdiscover_crbtn_defocus"
+        app:focus_color="#45c01a"
+        app:focus_icon="@drawable/anim_mtdiscover_crbtn_focus"
+        app:text="发现"
+        />
+
+    <com.sz.jjj.baselibrary.widget.reveallayout.CircularRevealButton
+        android:id="@+id/crbtn_about_me"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:anim_show="true"
+        app:defocus_color="#555"
+        app:defocus_icon="@drawable/anim_mtme_crbtn_defocus"
+        app:focus_color="#45c01a"
+        app:focus_icon="@drawable/anim_mtme_crbtn_focus"
+        app:text="我"
+        />
+
+  </RadioGroup>
+</LinearLayout>

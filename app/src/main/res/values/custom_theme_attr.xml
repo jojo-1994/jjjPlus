@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 控制app标题栏背景色 format:颜色值、资源引用 -->
+    <attr name="custom_attr_app_title_layout_bg" format="color|reference" />
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircularRevealButton">
+        <attr name="focus_icon" format="reference" />
+        <attr name="defocus_icon" format="reference" />
+        <attr name="focus_color" format="color" />
+        <attr name="defocus_color" format="color" />
+        <attr name="text" format="string" />
+        <attr name="textsize" format="dimension" />
+        <attr name="anim_show" format="boolean" />
+        <attr name="is_selected" format="boolean" />
+    </declare-styleable>
+</resources>
